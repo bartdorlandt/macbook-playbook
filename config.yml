@@ -209,3 +209,6 @@ pyenv_python_versions:
 pyenv_global: "{{ pyenv_python310_version }}"
 
 user_group: staff
+
+sublime_base_path: "~/Library/Application Support/Sublime Text"
+sublime_config_path: "Packages/User"
