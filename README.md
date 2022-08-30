@@ -62,8 +62,8 @@ or
 * **Keyboard Shortcuts**: Under System Preferences / Keyboard:
   * Mission Control:
     * Mission Control: F11
-    * Switch Desktop 1
-    * Switch Desktop 2
+    * Switch Desktop 1: ctrl+1
+    * Switch Desktop 2: ctrl+2
     * Disable all
   * Lanuchpad
     * Disable all
