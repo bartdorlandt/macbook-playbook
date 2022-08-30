@@ -55,7 +55,7 @@ or
 * **Services**: In System Preferences / Keyboard / Services, enable 'New Terminal at Folder' and 'New Terminal Tab at Folder'
 * **Screen Saver**: Set the screen saver to 'Flurry'
 * **Notification Centre**: Set the order of items and allow permission
-* **Sublime Text**: Sync settings
+* **Sublime Text**: Install "Sync settings" package and sync via github gist
 * **Google Chrome**: Login and sync
 * **App Store Login Items**: Start App Store menubar apps and set them to start
   at login (AppCleaner and OneDrive)
