@@ -68,7 +68,7 @@ sudoers_custom_config: ""
 configure_dotfiles: true
 dotfiles_repo: https://github.com/bartdorlandt/dotfiles.git
 dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/git/dotfiles_new
+dotfiles_repo_local_destination: ~/git/dotfiles
 dotfiles_repo_version: master
 dotfiles_files:
   # - .bash_profile

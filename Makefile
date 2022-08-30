@@ -33,7 +33,7 @@ upgrade-pip:
 	python3 -m ensurepip --upgrade
 
 pip-install-ansible: upgrade-pip
-    pip3 install ansible
+	pip3 install ansible
 
 ./roles:
 	ansible-galaxy install -r requirements.yml
