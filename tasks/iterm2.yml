@@ -5,24 +5,22 @@
     key: SUEnableAutomaticChecks
     type: bool
     value: true
-  tags: ['iterm2']
+  tags: ["iterm2"]
 
 - name: Ensure iTerm directories are initialized if they are not already.
-  ansible.builtin.command: "open -a /Applications/iTerm.app"
-  args:
-    creates: "~/Library/Application Support/iTerm2/DynamicProfiles/"
-  tags: ["iterm2"]
-  
-- name: Wait until DynamicProfiles dir is created.
-  ansible.builtin.wait_for:
+  ansible.builtin.file:
     path: "~/Library/Application Support/iTerm2/DynamicProfiles/"
-    state: present
+    state: directory
+    mode: "0755"
+  become: false
   tags: ["iterm2"]
 
 - name: Ensure local DynamicProfiles are copied to iTerm2 directory.
   ansible.builtin.copy:
-    src: "iterm2.json"
-    dest: "~/Library/Application Support/iTerm2/DynamicProfiles/iterm2.json"
+    src: "{{ item }}"
+    dest: "~/Library/Application Support/iTerm2/DynamicProfiles/{{ item }}"
+    mode: "0644"
+  loop:
+    - iterm2.json
   become: false
   tags: ["iterm2"]
-

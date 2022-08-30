@@ -1,0 +1,12 @@
+---
+exclude_paths:
+  - geerlingguy.mac-dev-playbook
+  - roles/elliotweiser.osx-command-line-tools
+  - geerlingguy.dotfiles
+  - .vscode
+  - config.yml
+  - .env.yml
+
+skip_list:
+  - git-latest
+  - risky-shell-pipe

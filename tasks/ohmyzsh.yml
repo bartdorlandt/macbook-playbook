@@ -1,16 +1,67 @@
 ---
 - name: Ensure Oh My ZSH repo exists
   ansible.builtin.git:
-    repo: 'https://github.com/ohmyzsh/ohmyzsh.git'
+    repo: "https://github.com/ohmyzsh/ohmyzsh.git"
     dest: ~/.oh-my-zsh
     depth: 1
-    update: no
+    update: false
   tags: ["zsh"]
 
-- name: Ensure Powerlevel10K repo exists
+- name: Ensure custom oh-my-zsh theme exists
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/{{ item }}"
+    mode: "0644"
+  loop:
+    - bart.zsh-theme
+  become: false
+  tags: ["iterm2"]
+# - name: Ensure Powerlevel10K repo exists
+#   ansible.builtin.git:
+#     repo: 'https://github.com/romkatv/powerlevel10k.git'
+#     dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
+#     depth: 1
+#     update: no
+#   tags: ["zsh"]
+
+- name: Git pull virtualenv-autodetect
   ansible.builtin.git:
-    repo: 'https://github.com/romkatv/powerlevel10k.git'
-    dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
+    repo: https://github.com/RobertDeRose/virtualenv-autodetect.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/virtualenv-autodetect"
+    update: true
+  tags:
+    - git
+    - zsh
+
+- name: Git pull zsh-autosuggestions
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     depth: 1
-    update: no
-  tags: ["zsh"]
+    update: true
+  tags:
+    - git
+    - zsh
+
+- name: Git pull zsh-syntax-highlighting
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    depth: 1
+    update: true
+  tags:
+    - git
+    - zsh
+
+- name: Add poetry zsh plugin
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/poetry"
+    state: directory
+    mode: "0755"
+  tags: poetry
+
+- name: Install Poetry for oh-my-zsh
+  ansible.builtin.shell: poetry completions zsh > {{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/poetry/_poetry
+  args:
+    creates: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/poetry/_poetry"
+  tags: poetry

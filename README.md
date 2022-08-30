@@ -15,15 +15,15 @@ The playbook contained in this repo does nothing except delegate all functionali
     Log into Mac App Store (App Store in Spotlight)
 
     # Create git repo dir
-    mkdir -p ~/git/bootstrap
-    cd ~/git/bootstrap
+    mkdir -p ~/git/
+    cd ~/git/
 
     # Clone this repository to your local drive.
-    git clone --recursive https://github.com/monrad/mac-playbook.git
+    git clone --recursive https://github.com/bartdorlandt/mac-playbook.git
     cd mac-playbook
-    
+
     # export path so ansible binaries are going to be on path
-    export PATH=~/Library/Python/3.8/bin:$PATH 
+    export PATH=~/Library/Python/3.8/bin:$PATH
 
     # Install dependencies.
     make install
@@ -40,9 +40,30 @@ You can filter which part of the provisioning process to run by specifying a set
 
     ansible-playbook main.yml -i geerlingguy.mac-dev-playbook/inventory -K --tags "dotfiles,homebrew"
 
+or
+
+    ansible-playbook main.yml -i geerlingguy.mac-dev-playbook/inventory -K --tags "post"
 ## Future additions
+
+* global gitconfig
+* pypi settings (.pypirc)
 
 ### Things that still need to be done manually
 
-Follow the note `Mac Playbook - Bootstrap`
-
+* **True Tone** Disable True Tone for retina display
+* **Finder**: Setup sidebar containing favourites
+* **Services**: In System Preferences / Keyboard / Services, enable 'New Terminal at Folder' and 'New Terminal Tab at Folder'
+* **Screen Saver**: Set the screen saver to 'Flurry'
+* **Notification Centre**: Set the order of items and allow permission
+* **Sublime Text**: Sync settings
+* **Google Chrome**: Login and sync
+* **App Store Login Items**: Start App Store menubar apps and set them to start
+  at login (AppCleaner and OneDrive)
+* **Keyboard Shortcuts**: Under System Preferences / Keyboard:
+  * Mission Control:
+    * Mission Control: F11
+    * Switch Desktop 1
+    * Switch Desktop 2
+    * Disable all
+  * Lanuchpad
+    * Disable all

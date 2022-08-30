@@ -3,8 +3,18 @@
   connection: local
 
   pre_tasks:
-    - include_vars: config.yml
-      tags: ['always']
+    - name: Include variables
+      ansible.builtin.include_vars: config.yml
+      tags: always
+    - name: Get stats of .env.yml
+      ansible.builtin.stat:
+        path: .env.yml
+      register: envyml
+      tags: always
+    - name: Include env.yml variables
+      ansible.builtin.include_vars: .env.yml
+      when: envyml.stat.exists
+      tags: always
 
 - import_playbook: geerlingguy.mac-dev-playbook/main.yml
 
@@ -12,4 +22,4 @@
   connection: local
   roles:
     - role: osx-defaults
-      tags: ['osx-defaults']
+      tags: osx-defaults

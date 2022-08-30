@@ -1,0 +1,17 @@
+---
+- name: Git pull fzf
+  ansible.builtin.git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "{{ ansible_env.HOME }}/git/fzf"
+    depth: 1
+    update: true
+  tags:
+    - git
+    - fzf
+    - zsh
+
+- name: Install fzf
+  ansible.builtin.command: "{{ ansible_env.HOME }}/git/fzf/install --all"
+  args:
+    creates: "{{ ansible_env.HOME }}/.fzf.zsh"
+  tags: fzf

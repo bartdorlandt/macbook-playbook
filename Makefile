@@ -1,8 +1,11 @@
 TAGS ?= all
+.PHONY: all install install-ansible install-xcode install-repo provision ./roles ./geerlingguy.mac-dev-playbook/main.yml clean
+#  install-dirs
 
 all: provision
 
-install: install-xcode install-ansible install-repo install-dirs
+install: install-xcode install-ansible install-repo
+#  install-dirs
 
 install-ansible: upgrade-pip pip-install-ansible
 
@@ -12,16 +15,15 @@ install-xcode:
 
 install-repo: ./roles ./geerlingguy.mac-dev-playbook/main.yml
 
-install-dirs:
-	mkdir -p ~/.config/nvim/
+# install-dirs:
+# 	mkdir -p ~/.config/nvim/
+
+clean:
+	rm -rf ./roles/elliotweiser.osx-command-line-tools
+	rm -rf ./roles/geerlingguy.dotfiles
 
 provision:
 	ansible-playbook main.yml -i geerlingguy.mac-dev-playbook/inventory -K --tags="$(TAGS)"
-
-clean:
-	rm -rf ./roles
-
-.PHONY: all install install-ansible install-xcode install-repo install-dirs provision clean
 
 ./geerlingguy.mac-dev-playbook/main.yml:
 	git submodule update --init --recursive
@@ -31,7 +33,7 @@ upgrade-pip:
 	python3 -m ensurepip --upgrade
 
 pip-install-ansible: upgrade-pip
-	pip3 install ansible
+    pip3 install ansible
 
 ./roles:
 	ansible-galaxy install -r requirements.yml

@@ -4,7 +4,7 @@ downloads: ~/.ansible-downloads/
 configure_terminal: false
 
 # Set to 'true' to configure the Dock via dockutil.
-configure_dock: false
+configure_dock: true
 dockitems_remove:
   - "App Store"
   - Calendar
@@ -21,28 +21,41 @@ dockitems_remove:
   - Photos
   - Podcasts
   - TV
+
 dockitems_persist:
-  - name: "Safari"
-    path: "/Applications/Safari.app/"
+  - name: "Google Chrome"
+    path: "/Applications/Google Chrome.app/"
     pos: 1
-  - name: "Messages"
-    path: "/System/Applications/Messages.app/"
-    pos: 2
-  - name: "Reminders"
-    path: "/System/Applications/Reminders.app/"
-    pos: 3
   - name: "iTerm"
     path: "/Applications/iTerm.app/"
-    pos: 4
-  - name: "Tweetbot"
-    path: "/Applications/Tweetbot.app/"
-    pos: 5
+    pos: 2
+  - name: "Sublime Text"
+    path: "/Applications/Sublime%20Text.app/"
+    pos: 3
   - name: "Slack"
     path: "/Applications/Slack.app/"
-    pos: 6
+    pos: 4
+  - name: "Visual Studio Code"
+    path: "/Applications/Visual%20Studio%20Code.app/"
+    pos: 5
   - name: "System Preferences"
     path: "/System/Applications/System%20Preferences.app/"
+    pos: 6
+  - name: "Authy Desktop"
+    path: "/Applications/Authy%20Desktop.app/"
     pos: 7
+  - name: "WhatsApp"
+    path: "/Applications/WhatsApp.app/"
+    pos: 8
+  - name: "Signal"
+    path: "/Applications/Signal.app/"
+    pos: 9
+  - name: "Telegram"
+    path: "/Applications/Telegram.app/"
+    pos: 10
+  - name: "Miro"
+    path: "/Applications/Miro.app/"
+    pos: 11
 
 configure_sudoers: false
 sudoers_custom_config: ""
@@ -53,39 +66,39 @@ sudoers_custom_config: ""
 
 # Set to 'true' to install dotfiles
 configure_dotfiles: true
-dotfiles_repo: https://github.com/monrad/dotfiles.git
+dotfiles_repo: https://github.com/bartdorlandt/dotfiles.git
 dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/git/bootstrap/dotfiles
-dotfiles_repo_version: main
+dotfiles_repo_local_destination: ~/git/dotfiles_new
+dotfiles_repo_version: master
 dotfiles_files:
-  - .config/nvim/init.lua
-  - .config/nvim/lua
-  - .osx
-  - .p10k.zsh
+  # - .bash_profile
+  # - .bashrc
+  - .screenrc
+  - .shell_aliases
+  - .tmux.conf
+  - .vimrc
+  - .vimrc.bundles
   - .zshrc
 
 homebrew_installed_packages:
-  # - ansible # Installed via Pip.
   - bat
   - coreutils
   - fd
   - fzf
-  - gh
   - git
-  - git-lfs
   - gnupg
   - go
+  - htop
   - httpie
-  - irrtoolset
   - jq
   - mtr
-  - neovim
-  - node
-  - pinentry-mac
+  - openssh
+  - prettyping
   - pwgen
   - pyenv
   - ripgrep
-  - sipcalc
+  # - sipcalc
+  - tailscale
   - telnet
   - tmate
   - tmux
@@ -94,6 +107,12 @@ homebrew_installed_packages:
   - xping
   - zsh-autosuggestions
   - zsh-syntax-highlighting
+  # - gh
+  # - git-lfs
+  # - irrtoolset
+  # - neovim
+  # - node
+  # - pinentry-mac
 
 homebrew_taps:
   - homebrew/cask
@@ -107,13 +126,16 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - docker
   - drawio
+  - dropbox
   - firefox
-  - font-hack-nerd-font
   - google-chrome
-  - google-earth-pro
+  - google-drive
   - iterm2
-  - logitech-camera-settings
-  - serial
+  - karabiner-elements
+  - logi-options-plus
+  - miro
+  - qview
+  - rectangle
   - signal
   - slack
   - sublime-text
@@ -121,15 +143,16 @@ homebrew_cask_apps:
   - visual-studio-code
   - whatsapp
   - wireshark
+  - yubico-yubikey-manager
   - zoom
+  # - font-hack-nerd-font
+  # - google-earth-pro
+  # - logitech-camera-settings
+  # - serial
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
-  - { id: 1384080005, name: "Tweetbot 3 for Twitter" }
-  - { id: 409183694, name: "Keynote" }
-  - { id: 409201541, name: "Pages" }
   - { id: 409203825, name: "Numbers" }
-  - { id: 413857545, name: "Divvy - Window Manager" }
 mas_uninstalled_apps:
   - { id: 408981434, name: "iMovie" }
   - { id: 682658836, name: "GarageBand" }
@@ -137,7 +160,7 @@ mas_email: ""
 mas_password: ""
 
 # Set to 'true' to configure osx defaults
-configure_osx: true
+configure_osx: false
 osx_script: "~/.osx --no-restart"
 
 # Install packages from other package managers.
@@ -160,7 +183,11 @@ npm_packages: []
 #   state: present # present/absent/latest, default: present
 #   version: "0.16.3" # default: N/A
 pip_packages:
-  - name: git-cu
+  # - name: git-cu
+  #   state: latest
+  - name: ansible
+    state: latest
+  - name: ansible-lint
     state: latest
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
@@ -168,15 +195,17 @@ post_provision_tasks: "{{ playbook_dir }}/../tasks/*.yml"
 
 # Pyenv config
 # # Latest Python versions
-pyenv_python38_version: "3.8.13"
-pyenv_python39_version: "3.9.13"
+# pyenv_python38_version: "3.8.13"
+# pyenv_python39_version: "3.9.13"
 pyenv_python310_version: "3.10.5"
 
 # Python versions to install
 pyenv_python_versions:
-  - "{{ pyenv_python38_version }}"
-  - "{{ pyenv_python39_version }}"
+  # - "{{ pyenv_python38_version }}"
+  # - "{{ pyenv_python39_version }}"
   - "{{ pyenv_python310_version }}"
 
 # Set global pyenv version
-pyenv_global: "{{ pyenv_python38_version }} system"
+pyenv_global: "{{ pyenv_python310_version }}"
+
+user_group: staff
