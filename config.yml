@@ -91,6 +91,7 @@ homebrew_installed_packages:
   - go
   - htop
   - httpie
+  - iproute2mac
   - jq
   - mtr
   - openssh
