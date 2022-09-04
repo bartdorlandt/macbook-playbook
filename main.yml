@@ -8,11 +8,15 @@
       ansible.builtin.include_vars: config.yml
       tags: always
     - name: MacOS specific variables
-      ansible.builtin.include_vars: config.mac.yml
+      ansible.builtin.include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.mac.yml"
       tags: always
       when: ansible_distribution == 'MacOSX'
     - name: Ubuntu specific variables
-      ansible.builtin.include_vars: config.mac.yml
+      ansible.builtin.include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.ubuntu.yml"
       tags: always
       when: ansible_distribution == 'Ubuntu'
     - name: Get stats of .env.yml
@@ -54,13 +58,16 @@
           tags: "iterm2"
       when: OS_mac
 
-    # - name: Ubuntu OS tasks
-    #   block:
-    #     # - name: Include the foo_app_instance role
-    #     #   ansible.builtin.include_role:
-    #     #     name: geerlingguy.mac.homebrew
-    #     #   tags: homebrew
-    #   when: OS_ubuntu
+    - name: Ubuntu OS tasks
+      block:
+        - name: Install docker
+          ansible.builtin.include_role:
+            name: geerlingguy.docker
+          vars:
+            docker_users: ["{{ ansible_env.USER }}"]
+          tags: docker
+          when: install_docker
+      when: OS_ubuntu
 
     # System independent tasks
     - name: Set up dirs and files

@@ -8,14 +8,6 @@
     - { path: "{{ ansible_env.HOME }}/.ssh", mode: "0700" }
     - { path: "{{ ansible_env.HOME }}/git", mode: "0750" }
 
-- name: Scripts symbolic link
-  ansible.builtin.file:
-    dest: "{{ ansible_env.HOME }}/scripts"
-    src: "{{ ansible_env.HOME }}/git/user_scripts_linux"
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ user_group }}"
-    state: link
-
 - name: Create a forward file
   ansible.builtin.copy:
     owner: "{{ ansible_env.USER }}"
