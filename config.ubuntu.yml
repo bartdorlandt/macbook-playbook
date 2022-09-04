@@ -1,0 +1,6 @@
+---
+OS_ubuntu: true
+
+# Need to check
+sublime_base_path: "~/.config/Sublime Text"
+sublime_config_path: "Packages/User"

@@ -3,3 +3,4 @@
 roles/*
 !roles/osx-defaults/
 .env.yml
+test.yml
