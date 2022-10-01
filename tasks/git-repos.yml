@@ -1,17 +1,27 @@
 ---
-- name: Git pull fzf
+- name: Git repos personal
   ansible.builtin.git:
-    repo: https://github.com/junegunn/fzf.git
-    dest: "{{ ansible_env.HOME }}/git/fzf"
-    depth: 1
+    repo: "{{ item.repo }}"
+    dest: "{{ item.path }}"
     update: true
-  tags:
-    - git
-    - fzf
-    - zsh
+    accept_hostkey: true
+  loop: "{{ git_repos }}"
+  when: git_repos is defined and item.when in (ansible_distribution, "always")
+  tags: git
 
-- name: Install fzf
-  ansible.builtin.command: "{{ ansible_env.HOME }}/git/fzf/install --all"
-  args:
-    creates: "{{ ansible_env.HOME }}/.fzf.zsh"
-  tags: fzf
+- name: Get stats of ~/git/user_scripts_linux
+  ansible.builtin.stat:
+    path: ~/git/user_scripts_linux
+  register: usl
+  tags: git
+
+# After own github repos
+- name: Scripts symbolic link
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/git/user_scripts_linux"
+    dest: "{{ ansible_env.HOME }}/scripts"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ user_group }}"
+    state: link
+  when: usl.stat.exists
+  tags: git

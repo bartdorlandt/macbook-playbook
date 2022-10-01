@@ -1,11 +1,15 @@
 ---
+
 exclude_paths:
-  - geerlingguy.mac-dev-playbook
-  - roles/elliotweiser.osx-command-line-tools
-  - geerlingguy.dotfiles
-  - .vscode
+  - geerlingguy.mac-dev-playbook/
+  - roles/geerlingguy.dotfiles/
+  - roles/elliotweiser.osx-command-line-tools/
+  - .vscode/
   - config.yml
+  - config.ubuntu.yml
+  - config.mac.yml
   - .env.yml
+  - env.yml-template
 
 skip_list:
   - git-latest

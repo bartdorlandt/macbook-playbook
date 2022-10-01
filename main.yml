@@ -19,20 +19,24 @@
         - "{{ playbook_dir }}/config.ubuntu.yml"
       tags: always
       when: ansible_distribution == 'Ubuntu'
-    - name: Get stats of .env.yml
-      ansible.builtin.stat:
-        path: .env.yml
-      register: envyml
-      tags: always
+    # - name: Get stats of .env.yml
+    #   ansible.builtin.stat:
+    #     path: .env.yml
+    #   register: envyml
+    #   tags: always
     - name: Include env.yml variables
       ansible.builtin.include_vars: .env.yml
-      when: envyml.stat.exists
+      # when: envyml.stat.exists
       tags: always
 
   tasks:
+    - name: Git setup
+      import_tasks: tasks/git-setup.yml
+      tags: git
+
     - name: MAC OS tasks
       block:
-        - name: Include the foo_app_instance role
+        - name: Include the hombrew role
           ansible.builtin.include_role:
             name: geerlingguy.mac.homebrew
           tags: homebrew
@@ -67,11 +71,17 @@
             docker_users: ["{{ ansible_env.USER }}"]
           tags: docker
           when: install_docker
+        - name: Install packages # noqa package-latest
+          ansible.builtin.apt:
+            package: packages
+            state: latest
+          tags: packages
+          when: packages
       when: OS_ubuntu
 
     # System independent tasks
     - name: Set up dirs and files
-      import_tasks: tasks/filemod.yml
+      import_tasks: tasks/forward.yml
       tags: filemod
 
     - name: Dotfiles

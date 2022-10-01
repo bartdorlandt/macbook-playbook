@@ -15,19 +15,12 @@
   loop:
     - bart.zsh-theme
   become: false
-  tags: ["iterm2"]
-# - name: Ensure Powerlevel10K repo exists
-#   ansible.builtin.git:
-#     repo: 'https://github.com/romkatv/powerlevel10k.git'
-#     dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
-#     depth: 1
-#     update: no
-#   tags: ["zsh"]
+  tags: ["zsh"]
 
 - name: Git pull virtualenv-autodetect
   ansible.builtin.git:
     repo: https://github.com/RobertDeRose/virtualenv-autodetect.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/virtualenv-autodetect"
+    dest: "{{ ansible_env.HOME }}/git/virtualenv-autodetect"
     update: true
   tags:
     - git
@@ -65,3 +58,20 @@
   args:
     creates: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/poetry/_poetry"
   tags: poetry
+
+- name: Git pull fzf
+  ansible.builtin.git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "{{ ansible_env.HOME }}/git/fzf"
+    depth: 1
+    update: true
+  tags:
+    - git
+    - fzf
+    - zsh
+
+- name: Install fzf
+  ansible.builtin.command: "{{ ansible_env.HOME }}/git/fzf/install --all"
+  args:
+    creates: "{{ ansible_env.HOME }}/.fzf.zsh"
+  tags: fzf

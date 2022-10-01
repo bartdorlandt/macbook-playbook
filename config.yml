@@ -50,3 +50,9 @@ pip_packages:
     state: latest
   - name: ansible-lint
     state: latest
+#
+# git_repos:
+# - {repo: $url, path: $dest_folder}
+
+git_init_default_branch: master
+git_pull_rebase: false

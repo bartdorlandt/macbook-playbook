@@ -80,6 +80,7 @@ homebrew_installed_packages:
   - telnet
   - tmate
   - tmux
+  - tree
   - wget
   - whois
   - xping

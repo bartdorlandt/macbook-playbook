@@ -5,7 +5,7 @@
     key: SUEnableAutomaticChecks
     type: bool
     value: true
-  tags: ["iterm2"]
+  tags: iterm2
 
 - name: Ensure iTerm directories are initialized if they are not already.
   ansible.builtin.file:
@@ -13,7 +13,7 @@
     state: directory
     mode: "0755"
   become: false
-  tags: ["iterm2"]
+  tags: iterm2
 
 - name: Ensure local DynamicProfiles are copied to iTerm2 directory.
   ansible.builtin.copy:
@@ -23,4 +23,4 @@
   loop:
     - iterm2.json
   become: false
-  tags: ["iterm2"]
+  tags: iterm2

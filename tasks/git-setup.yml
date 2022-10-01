@@ -1,0 +1,16 @@
+---
+- name: Create user file for Git config
+  ansible.builtin.template:
+    src: gitconfig_user.j2
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    mode: 0600
+  when: configure_dotfiles
+  tags: git
+
+- name: Make sure git directories exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "750"
+  loop: "{{ git_dirs }}"
+  tags: git

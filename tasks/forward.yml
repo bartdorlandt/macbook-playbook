@@ -1,0 +1,9 @@
+---
+- name: Create a forward file
+  ansible.builtin.copy:
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ user_group }}"
+    mode: 0750
+    dest: "{{ ansible_env.HOME }}/.forward"
+    content: |
+      {{ email }}
