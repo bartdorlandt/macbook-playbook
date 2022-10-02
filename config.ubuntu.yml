@@ -9,4 +9,45 @@ sublime_config_path: "Packages/User"
 install_docker: true
 
 packages:
+  - autofs
+  - bzip2
+  - curl
+  - dkms
+  - git
+  - google-chrome-stable
+  - gparted
+  - htop
+  - insync
+  - insync-nautilus
+  - iotop
+  - nfs-common
+  - nmap
+  - postfix
+  - remmina
+  - ripgrep
+  - scdaemon
+  - signal
+  - sni-qt
+  - sublime-text
+  - tcpdump
+  - tilix
+  - tmux
+  - traceroute
   - tree
+  - unattended-upgrades
+  - unrar
+  - vim-nox
+  - virtualbox
+  - vlc
+  - whois
+  - xournal
+  - zsh
+
+# Homebrew packages to be installed
+brew_formulae: []
+# Homebrew git repo
+# homebrew_git_repo: "https://github.com/Homebrew/brew"
+# Homebrew release (default is the master github repo)
+# homebrew_release: "master"
+# Homebrew user
+# homebrew_user: "{{ lookup('env', 'USER') }}"

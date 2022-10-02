@@ -60,6 +60,10 @@
             docker_users: ["{{ ansible_env.USER }}"]
           tags: docker
           when: install_docker
+        - name: Include the hombrew role
+          ansible.builtin.include_role:
+            name: monolithprojects.homebrew
+          tags: homebrew
         - name: Install packages # noqa package-latest
           ansible.builtin.apt:
             package: packages
