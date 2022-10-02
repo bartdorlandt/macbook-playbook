@@ -44,6 +44,7 @@ pyenv_python_versions:
 
 # Set global pyenv version
 pyenv_global: "{{ pyenv_python310_version }}"
+pip_executable: "{{ ansible_env.HOME }}/.pyenv/versions/{{ pyenv_global }}/bin/pip3"
 
 pip_packages:
   - name: ansible
