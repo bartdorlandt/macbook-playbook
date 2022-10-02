@@ -7,26 +7,11 @@
     - name: Include variables
       ansible.builtin.include_vars: config.yml
       tags: always
-    - name: MacOS specific variables
-      ansible.builtin.include_vars: "{{ item }}"
-      with_fileglob:
-        - "{{ playbook_dir }}/config.mac.yml"
+    - name: OS specific variables
+      ansible.builtin.include_vars: "{{ playbook_dir }}/config.{{ ansible_distribution | lower }}.yml"
       tags: always
-      when: ansible_distribution == 'MacOSX'
-    - name: Ubuntu specific variables
-      ansible.builtin.include_vars: "{{ item }}"
-      with_fileglob:
-        - "{{ playbook_dir }}/config.ubuntu.yml"
-      tags: always
-      when: ansible_distribution == 'Ubuntu'
-    # - name: Get stats of .env.yml
-    #   ansible.builtin.stat:
-    #     path: .env.yml
-    #   register: envyml
-    #   tags: always
     - name: Include env.yml variables
       ansible.builtin.include_vars: .env.yml
-      # when: envyml.stat.exists
       tags: always
 
   tasks:
@@ -35,6 +20,7 @@
       tags: git
 
     - name: MAC OS tasks
+      when: OS_mac
       block:
         - name: Include the hombrew role
           ansible.builtin.include_role:
@@ -63,9 +49,9 @@
         - name: App karabiner
           import_tasks: tasks/karabiner.mac.yml
           tags: "karabiner"
-      when: OS_mac
 
     - name: Ubuntu OS tasks
+      when: OS_ubuntu
       block:
         - name: Install docker
           ansible.builtin.include_role:
@@ -80,7 +66,6 @@
             state: latest
           tags: packages
           when: packages
-      when: OS_ubuntu
 
     # System independent tasks
     - name: Set up dirs and files

@@ -1,5 +1,5 @@
 ---
-- name: Create a forward file
+- name: Create a forward file # noqa template-instead-of-copy
   ansible.builtin.copy:
     owner: "{{ ansible_env.USER }}"
     group: "{{ user_group }}"
