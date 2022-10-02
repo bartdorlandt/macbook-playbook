@@ -55,11 +55,14 @@
             name: osx-defaults
           tags: osx-defaults
         - name: App iClouddrive
-          import_tasks: tasks/iclouddrive.yml
+          import_tasks: tasks/iclouddrive.mac.yml
           tags: "iclouddrive"
         - name: App iTerm2
-          import_tasks: tasks/iterm2.yml
+          import_tasks: tasks/iterm2.mac.yml
           tags: "iterm2"
+        - name: App karabiner
+          import_tasks: tasks/karabiner.mac.yml
+          tags: "karabiner"
       when: OS_mac
 
     - name: Ubuntu OS tasks

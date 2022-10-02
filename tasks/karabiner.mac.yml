@@ -1,0 +1,16 @@
+---
+- name: Make sure the karabiner dirs exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/karabiner"
+    state: directory
+    mode: "700"
+  tags: karabiner
+
+# Using a template instead of a file copy so it can be backed up.
+- name: Karabiner set up config
+  ansible.builtin.template:
+    src: karabiner.json.j2
+    dest: "{{ ansible_env.HOME }}/.config/karabiner/karabiner.json"
+    mode: 0600
+    backup: true
+  tags: karabiner
