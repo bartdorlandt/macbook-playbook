@@ -10,6 +10,7 @@ install_docker: true
 
 packages:
   - autofs
+  - bat
   - bzip2
   - curl
   - dkms
@@ -20,6 +21,7 @@ packages:
   - insync
   - insync-nautilus
   - iotop
+  - jq
   - nfs-common
   - nmap
   - postfix
