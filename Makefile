@@ -23,7 +23,7 @@ clean:
 	rm -rf ./roles/geerlingguy.dotfiles
 
 provision:
-	ansible-playbook main.yml -i geerlingguy.mac-dev-playbook/inventory -K --tags="$(TAGS)"
+	ansible-playbook main.yml -K --tags="$(TAGS)"
 
 ./geerlingguy.mac-dev-playbook/main.yml:
 	git submodule update --init --recursive
