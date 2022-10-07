@@ -70,3 +70,11 @@
     version: "{{ item.version | default(omit) }}"
     executable: "{{ item.executable | default(pip_executable) }}"
   loop: "{{ pip_packages }}"
+
+- name: Create pypirc file
+  ansible.builtin.template:
+    src: pypirc.j2
+    dest: "{{ ansible_env.HOME }}/.pypirc"
+    mode: 0600
+  when: pypi_username and pypi_password
+  tags: pypi
