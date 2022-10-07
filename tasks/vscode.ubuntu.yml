@@ -1,6 +1,7 @@
 ---
 - name: Add VScode
   become: true
+  tags: vscode
   block:
     - name: Download VScode asc key
       ansible.builtin.get_url:
@@ -13,3 +14,7 @@
         repo: "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/vscode.asc] https://packages.microsoft.com/repos/code stable main"
         state: present
         mode: 0644
+
+    - name: Add code to packages
+      ansible.builtin.set_fact:
+        packages: "{{ packages + ['code'] }}"

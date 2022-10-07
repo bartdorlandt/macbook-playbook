@@ -12,7 +12,6 @@ packages:
   - autofs
   - bat
   - bzip2
-  - code
   - curl
   - dkms
   - git
@@ -54,3 +53,5 @@ brew_formulae: []
 # homebrew_release: "master"
 # Homebrew user
 # homebrew_user: "{{ lookup('env', 'USER') }}"
+
+vscode_install: true
