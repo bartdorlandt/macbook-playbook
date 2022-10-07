@@ -53,6 +53,9 @@
     - name: Ubuntu OS tasks
       when: OS_ubuntu
       block:
+        - name: Install apt sources
+          import_tasks: tasks/aptsources.ubuntu.yml
+          tags: aptsources
         - name: Install docker
           ansible.builtin.include_role:
             name: geerlingguy.docker

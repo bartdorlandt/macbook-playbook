@@ -12,6 +12,7 @@ packages:
   - autofs
   - bat
   - bzip2
+  - code
   - curl
   - dkms
   - git
