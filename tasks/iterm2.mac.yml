@@ -15,12 +15,13 @@
   become: false
   tags: iterm2
 
-- name: Ensure local DynamicProfiles are copied to iTerm2 directory.
-  ansible.builtin.copy:
-    src: "{{ item }}"
+- name: Iterm2 profile symbolic link
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/tasks/files/{{ item }}"
     dest: "~/Library/Application Support/iTerm2/DynamicProfiles/{{ item }}"
-    mode: "0644"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ user_group }}"
+    state: link
   loop:
     - iterm2.json
-  become: false
   tags: iterm2

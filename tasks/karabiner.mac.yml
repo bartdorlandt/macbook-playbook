@@ -6,11 +6,13 @@
     mode: "700"
   tags: karabiner
 
-# Using a template instead of a file copy so it can be backed up.
-- name: Karabiner set up config
-  ansible.builtin.template:
-    src: karabiner.json.j2
-    dest: "{{ ansible_env.HOME }}/.config/karabiner/karabiner.json"
-    mode: 0600
-    backup: true
+- name: Karabiner profile symbolic link
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/tasks/files/{{ item }}"
+    dest: "~/.config/karabiner/{{ item }}"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ user_group }}"
+    state: link
+  loop:
+    - karabiner.json
   tags: karabiner

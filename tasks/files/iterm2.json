@@ -426,9 +426,9 @@
     "Red Component" : 0.73333334922790527,
     "Blue Component" : 0
   },
-  "Name" : "Default",
+  "Name" : "BartDefault",
   "Blinking Cursor" : false,
-  "Guid" : "0E57C352-8113-4CCC-BD3F-9FBFC70AD37B",
+  "Guid" : "0E57C352-8113-4CCC-BD3F-9FBFC70AD37C",
   "Idle Code" : 0,
   "Ansi 10 Color" : {
     "Green Component" : 1,
