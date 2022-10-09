@@ -8,6 +8,17 @@ sublime_config_path: "Packages/User"
 # Docker
 install_docker: true
 
+dotfiles_files:
+  - .bash_profile
+  - .bashrc
+  - .screenrc
+  - .shell_aliases
+  - .tmux.conf
+  - .vimrc
+  - .vimrc.bundles
+  - .zshrc
+  - .zprofile
+
 packages:
   - autofs
   - bat

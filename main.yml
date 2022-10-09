@@ -94,3 +94,6 @@
       tags: python
     - import_tasks: tasks/sublime-text.yml
       tags: sublime-text
+    - import_tasks: tasks/dynv6.yml
+      tags: dynv6
+      when: dynv6_token and dynv6_name

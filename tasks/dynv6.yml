@@ -1,0 +1,6 @@
+---
+- name: Ensure a job run every 10 minutes to update dynv6
+  ansible.builtin.cron:
+    name: "dynv6"
+    minute: "*/10"
+    job: "token={{ dynv6_token }} $HOME/git/user_scripts_linux/dyndns/dynv6_com.sh {{ dynv6_name }} > /tmp/{{ dynv6_name }}.log 2>&1"
