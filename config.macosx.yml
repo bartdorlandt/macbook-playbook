@@ -109,6 +109,7 @@ homebrew_cask_apps:
   - iterm2
   - karabiner-elements
   - logi-options-plus
+  - microsoft-teams
   - miro
   - notion
   - qview
@@ -117,6 +118,8 @@ homebrew_cask_apps:
   - slack
   - sublime-text
   - telegram
+  - virtualbox
+  - virtualbox-extension-pack
   - visual-studio-code
   - whatsapp
   - wireshark

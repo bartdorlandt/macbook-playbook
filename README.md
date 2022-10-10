@@ -55,6 +55,7 @@ or
 - **Notification Centre**: Set the order of items and allow permission
 - **Sublime Text**: Install VScode [MAC](https://code.visualstudio.com/docs?dv=osx) and sync with github
 - **Sublime Text**: Install "Sync settings" package and sync via github gist
+- **VirtualBox**: System Preferences → Security & Privacy → General, allow the kernel extension
 - **Google Chrome**: Login and sync
 - **App Store Login Items**: Start App Store menubar apps and set them to start
   at login (AppCleaner and OneDrive)
