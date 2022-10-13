@@ -16,7 +16,7 @@
 
   tasks:
     - name: Git setup
-      import_tasks: tasks/git-setup.yml
+      ansible.builtin.import_tasks: tasks/git-setup.yml
       tags: git
 
     - name: MAC OS tasks
@@ -41,20 +41,20 @@
             name: osx-defaults
           tags: osx-defaults
         - name: App iClouddrive
-          import_tasks: tasks/iclouddrive.mac.yml
+          ansible.builtin.import_tasks: tasks/iclouddrive.mac.yml
           tags: "iclouddrive"
         - name: App iTerm2
-          import_tasks: tasks/iterm2.mac.yml
+          ansible.builtin.import_tasks: tasks/iterm2.mac.yml
           tags: "iterm2"
         - name: App karabiner
-          import_tasks: tasks/karabiner.mac.yml
+          ansible.builtin.import_tasks: tasks/karabiner.mac.yml
           tags: "karabiner"
 
     - name: Ubuntu OS tasks
       when: OS_ubuntu
       block:
         - name: Install apt sources
-          import_tasks: tasks/vscode.ubuntu.yml
+          ansible.builtin.import_tasks: tasks/vscode.ubuntu.yml
           tags: vscode
           when: vscode_install
         - name: Install docker
@@ -77,7 +77,7 @@
 
     # System independent tasks
     - name: Set up dirs and files
-      import_tasks: tasks/forward.yml
+      ansible.builtin.import_tasks: tasks/forward.yml
       tags: filemod
 
     - name: Dotfiles
@@ -86,14 +86,19 @@
       tags: dotfiles
       when: configure_dotfiles
 
-    - import_tasks: tasks/git-repos.yml
+    - name: Import task - git-repos
+      ansible.builtin.import_tasks: tasks/git-repos.yml
       tags: git-repos
-    - import_tasks: tasks/ohmyzsh.yml
+    - name: Import task - ohmyzsh
+      ansible.builtin.import_tasks: tasks/ohmyzsh.yml
       tags: ohmyzsh
-    - import_tasks: tasks/python.yml
+    - name: Import task - python
+      ansible.builtin.import_tasks: tasks/python.yml
       tags: python
-    - import_tasks: tasks/sublime-text.yml
+    - name: Import task - sublimetext
+      ansible.builtin.import_tasks: tasks/sublime-text.yml
       tags: sublime-text
-    - import_tasks: tasks/dynv6.yml
+    - name: Import task - dynv6
+      ansible.builtin.import_tasks: tasks/dynv6.yml
       tags: dynv6
       when: dynv6_token and dynv6_name
