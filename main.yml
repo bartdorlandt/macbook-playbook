@@ -42,13 +42,13 @@
           tags: osx-defaults
         - name: App iClouddrive
           ansible.builtin.import_tasks: tasks/iclouddrive.mac.yml
-          tags: "iclouddrive"
+          tags: iclouddrive
         - name: App iTerm2
           ansible.builtin.import_tasks: tasks/iterm2.mac.yml
-          tags: "iterm2"
+          tags: iterm2
         - name: App karabiner
           ansible.builtin.import_tasks: tasks/karabiner.mac.yml
-          tags: "karabiner"
+          tags: karabiner
 
     - name: Ubuntu OS tasks
       when: OS_ubuntu
@@ -86,6 +86,9 @@
       tags: dotfiles
       when: configure_dotfiles
 
+    - name: Import task - ssh
+      ansible.builtin.import_tasks: tasks/ssh.yml
+      tags: ssh
     - name: Import task - vimVundle
       ansible.builtin.import_tasks: tasks/vimVundle.yml
       tags: vim
@@ -104,4 +107,7 @@
     - name: Import task - dynv6
       ansible.builtin.import_tasks: tasks/dynv6.yml
       tags: dynv6
-      when: dynv6_token and dynv6_name
+      when: dynv6_token is defined and dynv6_name is defined
+    - name: Import task - symlinks
+      ansible.builtin.import_tasks: tasks/symlinks.yml
+      tags: symlinks

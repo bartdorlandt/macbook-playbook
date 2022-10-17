@@ -18,11 +18,9 @@ The playbook contained in this repo does nothing except delegate all functionali
 
     # Create git repo dir
     mkdir -p ~/git/
-    cd ~/git/
 
     # Clone this repository to your local drive.
-    git clone --recursive https://github.com/bartdorlandt/laptop-playbooks.git
-    cd laptop-playbooks
+    git clone --recursive https://github.com/bartdorlandt/laptop-playbooks.git ~/git/laptop-playbooks
 
     # export path so ansible binaries are going to be on path
     export PATH=~/Library/Python/3.8/bin:$PATH
@@ -33,8 +31,6 @@ The playbook contained in this repo does nothing except delegate all functionali
     # Run the playbook (Some casks might need an interactive password during installation).
     make provision
 
-    # Addtional tasks
-    Open up the `Mac Playbook - Bootstrap` note and follow it.
 
 ### Running a specific set of tagged tasks
 
@@ -52,20 +48,32 @@ or
 
 - **True Tone** Disable True Tone for retina display
 - **Finder**: Setup sidebar containing favourites
-- **Services**: In System Preferences / Keyboard / Services, enable 'New Terminal at Folder' and 'New Terminal Tab at Folder'
 - **Screen Saver**: Set the screen saver to 'Flurry'
+- **Mission Control**:
+  - Disable: Automatically rearrange Spaces based on most recent use
+- **Mission Control Hot Corners**:
+  - Left top: Mission Control
+  - Right top: Notification Center
+  - Left bottom: Desktop
+  - Right bottom: -
 - **Notification Centre**: Set the order of items and allow permission
-- **Sublime Text**: Install VScode [MAC](https://code.visualstudio.com/docs?dv=osx) and sync with github
+- **VScode**: Install VScode [MAC](https://code.visualstudio.com/docs?dv=osx) and sync with github
 - **Sublime Text**: Install "Sync settings" package and sync via github gist
 - **VirtualBox**: System Preferences → Security & Privacy → General, allow the kernel extension
 - **Google Chrome**: Login and sync
 - **App Store Login Items**: Start App Store menubar apps and set them to start
   at login (AppCleaner and OneDrive)
 - **Keyboard Shortcuts**: Under System Preferences / Keyboard:
+  - Lanuchpad: Disable all
   - Mission Control:
     - Mission Control: F11
     - Switch Desktop 1: ctrl+1
     - Switch Desktop 2: ctrl+2
     - Disable all
-  - Lanuchpad
-    - Disable all
+  - Keyboard:
+- **Dock & Menu Bar**:
+  - Automatically hiden and show the dock: on
+  - Show recent applications in Dock: off
+- **Services**:
+  - Text > Convert text to Simplified Chinese: off
+  - Text > Convert text to Traditional Chinese: off

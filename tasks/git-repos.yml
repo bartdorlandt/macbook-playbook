@@ -1,27 +1,10 @@
 ---
-- name: Git repos personal
+- name: Git repos
   ansible.builtin.git:
     repo: "{{ item.repo }}"
     dest: "{{ item.path }}"
     update: true
     accept_hostkey: true
   loop: "{{ git_repos }}"
-  when: git_repos is defined and item.when in (ansible_distribution, "always")
-  tags: git
-
-- name: Get stats of ~/git/user_scripts_linux
-  ansible.builtin.stat:
-    path: ~/git/user_scripts_linux
-  register: usl
-  tags: git
-
-# After own github repos
-- name: Scripts symbolic link
-  ansible.builtin.file:
-    src: "{{ ansible_env.HOME }}/git/user_scripts_linux"
-    dest: "{{ ansible_env.HOME }}/scripts"
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ user_group }}"
-    state: link
-  when: usl.stat.exists
+  when: git_repos is defined
   tags: git

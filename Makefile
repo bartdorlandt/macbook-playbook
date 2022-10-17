@@ -1,11 +1,9 @@
 TAGS ?= all
 .PHONY: all install install-ansible install-xcode install-repo provision ./roles ./geerlingguy.mac-dev-playbook/main.yml clean
-#  install-dirs
 
 all: provision
 
 install: install-xcode install-ansible install-repo
-#  install-dirs
 
 install-ansible: upgrade-pip pip-install-ansible
 
@@ -14,9 +12,6 @@ install-xcode:
 	if [ "`xcode-select -p`" != "/Library/Developer/CommandLineTools" ]; then sudo xcode-select -switch /Library/Developer/CommandLineTools; fi
 
 install-repo: ./roles ./geerlingguy.mac-dev-playbook/main.yml
-
-# install-dirs:
-# 	mkdir -p ~/.config/nvim/
 
 clean:
 	rm -rf ./roles/elliotweiser.osx-command-line-tools
@@ -29,11 +24,11 @@ provision:
 	git submodule update --init --recursive
 
 upgrade-pip:
-	python3 -m pip install --upgrade pip
+	python3 -m pip install --upgrade pip --user
 	python3 -m ensurepip --upgrade
 
 pip-install-ansible: upgrade-pip
-	pip3 install ansible
+	pip3 install ansible --user
 
 ./roles:
 	ansible-galaxy install -r requirements.yml

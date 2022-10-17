@@ -1,0 +1,68 @@
+---
+- name: Make sure the SSH directories exist
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: directory
+    mode: "{{ item.mode }}"
+  loop:
+    - { path: "{{ ansible_env.HOME }}/.ssh", mode: "0700" }
+    - { path: "{{ ansible_env.HOME }}/.ssh/config.d", mode: "0700" }
+  tags: ssh
+
+- name: Make sure certain files exists before manipulating
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: touch
+    mode: 0600
+    modification_time: preserve
+    access_time: preserve
+  loop:
+    - "{{ ansible_env.HOME }}/.ssh/config"
+    - "{{ ansible_env.HOME }}/.ssh/config.d/home"
+  tags: ssh
+
+- name: Configure the ssh config file
+  ansible.builtin.blockinfile:
+    path: "{{ ansible_env.HOME }}/.ssh/config"
+    block: |
+      Include config.d/*
+
+      Host *
+          ServerAliveInterval 120
+          ServerAliveCountMax 3
+  tags: ssh
+
+- name: Configure the ssh config.d/home file
+  ansible.builtin.blockinfile:
+    path: "{{ ansible_env.HOME }}/.ssh/config.d/home"
+    block: |
+      # Host <name or IP>
+      #     HostName <hostname | IP>
+      #     User <username>
+      #     DynamicForward 9999
+      #     ForwardAgent yes
+      #     IdentityFile /Users/user/.ssh/<keyname>
+      #     LocalForward 3000 127.0.0.1:3000
+      #     PubkeyAcceptedAlgorithms +ssh-rsa
+      #     ProxyJump host2
+
+      # Host <host2>
+      #     HostName <hostname | IP>
+      #     User <username>
+      #     DynamicForward 9999
+      #     ForwardAgent yes
+      #     IdentityFile /Users/user/.ssh/<keyname>
+      #     LocalForward 3000 127.0.0.1:3000
+      #     PubkeyAcceptedAlgorithms +ssh-rsa
+      #     ProxyJump host2
+            
+  tags: ssh
+
+- name: Create the default ssh-key
+  ansible.builtin.command: ssh-keygen -t {{ key_type }} -f {{ ansible_env.HOME }}/.ssh/{{ key_name }} -N ""
+  vars:
+    key_type: "{{ ssh_key_type | default('ed25519') }}"
+    key_name: "{{ ssh_key_name | default('id') }}_{{ ssh_key_type | default('ed25519') }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.ssh/{{ key_name }}"
+  tags: ssh

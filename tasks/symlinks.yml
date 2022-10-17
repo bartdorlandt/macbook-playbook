@@ -1,0 +1,17 @@
+---
+- name: Get stats of ~/git/user_scripts_linux
+  ansible.builtin.stat:
+    path: ~/git/user_scripts_linux
+  register: usl
+  tags: symlinks
+
+# After own github repos
+- name: Scripts symbolic link
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/git/user_scripts_linux"
+    dest: "{{ ansible_env.HOME }}/scripts"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ user_group }}"
+    state: link
+  when: usl.stat.exists
+  tags: symlinks

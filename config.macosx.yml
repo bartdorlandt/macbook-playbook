@@ -124,9 +124,9 @@ homebrew_cask_apps:
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
   - { id: 409203825, name: "Numbers" }
-mas_uninstalled_apps:
-  - { id: 408981434, name: "iMovie" }
-  - { id: 682658836, name: "GarageBand" }
+# mas_uninstalled_apps:
+#   - { id: 408981434, name: "iMovie" }
+#   - { id: 682658836, name: "GarageBand" }
 mas_email: ""
 mas_password: ""
 
