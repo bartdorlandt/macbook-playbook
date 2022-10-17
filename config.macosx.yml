@@ -33,19 +33,19 @@ dockitems_persist:
     path: "/Applications/iTerm.app/"
     pos: 2
   - name: "Sublime Text"
-    path: "/Applications/Sublime%20Text.app/"
+    path: "/Applications/Sublime Text.app/"
     pos: 3
   - name: "Slack"
     path: "/Applications/Slack.app/"
     pos: 4
   - name: "Visual Studio Code"
-    path: "/Applications/Visual%20Studio%20Code.app/"
+    path: "/Applications/Visual Studio Code.app/"
     pos: 5
   - name: "Notion"
     path: "/Applications/Notion.app/"
     pos: 6
   - name: "Authy Desktop"
-    path: "/Applications/Authy%20Desktop.app/"
+    path: "/Applications/Authy Desktop.app/"
     pos: 7
   - name: "WhatsApp"
     path: "/Applications/WhatsApp.app/"
@@ -57,7 +57,7 @@ dockitems_persist:
     path: "/Applications/Telegram.app/"
     pos: 10
   - name: "System Preferences"
-    path: "/System/Applications/System%20Preferences.app/"
+    path: "/System/Applications/System Preferences.app/"
     pos: 11
 
 homebrew_installed_packages:

@@ -24,7 +24,7 @@ provision:
 	git submodule update --init --recursive
 
 upgrade-pip:
-	python3 -m pip install --upgrade pip --user
+	python3 -m pip install --upgrade pip
 	python3 -m ensurepip --upgrade
 
 pip-install-ansible: upgrade-pip
