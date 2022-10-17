@@ -31,7 +31,7 @@
             name: geerlingguy.mac.mas
           when: mas_installed_apps or mas_installed_app_ids
           tags: mas
-        - name: Other MAC software
+        - name: Setup the dock
           ansible.builtin.include_role:
             name: geerlingguy.mac.dock
           when: configure_dock
@@ -86,15 +86,18 @@
       tags: dotfiles
       when: configure_dotfiles
 
+    - name: Import task - vimVundle
+      ansible.builtin.import_tasks: tasks/vimVundle.yml
+      tags: vim
     - name: Import task - git-repos
       ansible.builtin.import_tasks: tasks/git-repos.yml
       tags: git-repos
-    - name: Import task - ohmyzsh
-      ansible.builtin.import_tasks: tasks/ohmyzsh.yml
-      tags: ohmyzsh
     - name: Import task - python
       ansible.builtin.import_tasks: tasks/python.yml
       tags: python
+    - name: Import task - ohmyzsh
+      ansible.builtin.import_tasks: tasks/ohmyzsh.yml
+      tags: ohmyzsh
     - name: Import task - sublimetext
       ansible.builtin.import_tasks: tasks/sublime-text.yml
       tags: sublime-text

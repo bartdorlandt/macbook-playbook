@@ -4,3 +4,6 @@ roles:
   - name: geerlingguy.dotfiles
   - name: geerlingguy.docker
   - name: monolithprojects.homebrew
+
+collections:
+  - name: geerlingguy.mac

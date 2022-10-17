@@ -1,0 +1,8 @@
+---
+- name: Vim Vundle git clone
+  ansible.builtin.git:
+    repo: "https://github.com/gmarik/Vundle.vim.git"
+    dest: "~/.vim/bundle/Vundle.vim"
+    update: true
+    accept_hostkey: true
+  tags: vim

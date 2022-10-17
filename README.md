@@ -13,6 +13,8 @@ The playbook contained in this repo does nothing except delegate all functionali
 
     # Pre tasks
     Log into Mac App Store (App Store in Spotlight)
+    From a terminal:
+        xcode-select --install
 
     # Create git repo dir
     mkdir -p ~/git/

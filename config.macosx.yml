@@ -14,12 +14,15 @@ dockitems_remove:
   - Launchpad
   - Mail
   - Maps
+  - Messages
   - Music
+  - News
   - Notes
   - Numbers
   - Pages
   - Photos
   - Podcasts
+  - Safari
   - TV
 
 dockitems_persist:
@@ -53,12 +56,9 @@ dockitems_persist:
   - name: "Telegram"
     path: "/Applications/Telegram.app/"
     pos: 10
-  - name: "Miro"
-    path: "/Applications/Miro.app/"
-    pos: 11
   - name: "System Preferences"
     path: "/System/Applications/System%20Preferences.app/"
-    pos: 12
+    pos: 11
 
 homebrew_installed_packages:
   - bat
@@ -87,8 +87,6 @@ homebrew_installed_packages:
   - wget
   - whois
   - xping
-  - zsh-autosuggestions
-  - zsh-syntax-highlighting
 
 homebrew_taps:
   - homebrew/cask
@@ -100,6 +98,7 @@ homebrew_taps:
 homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  - authy
   - docker
   - drawio
   - dropbox
@@ -109,11 +108,7 @@ homebrew_cask_apps:
   - iterm2
   - karabiner-elements
   - logi-options-plus
-  - microsoft-teams
-  - miro
   - notion
-  - qview
-  - rectangle
   - signal
   - slack
   - sublime-text

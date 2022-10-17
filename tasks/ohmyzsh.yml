@@ -54,7 +54,7 @@
   tags: poetry
 
 - name: Install Poetry for oh-my-zsh
-  ansible.builtin.shell: poetry completions zsh > {{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/poetry/_poetry
+  ansible.builtin.shell: ~/.local/bin/poetry completions zsh > {{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/poetry/_poetry
   args:
     creates: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/poetry/_poetry"
   tags: poetry

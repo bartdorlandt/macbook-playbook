@@ -47,6 +47,7 @@
   notify:
     - Restart MenuBar
     - Restart Dock
+  tags: osx-defaults
 
 ###############################################################################
 # Menu bar                                                                    #
@@ -88,6 +89,7 @@
       value: true
   notify:
     - Restart MenuBar
+  tags: osx-defaults
 
 ###############################################################################
 # Finder                                                                      #
@@ -109,6 +111,7 @@
       key: FXPreferredViewStyle
       type: string
       value: "Nlsv"
+  tags: osx-defaults
 
 ###############################################################################
 # Dock                                                                        #
@@ -147,6 +150,7 @@
       value: "genie"
   notify:
     - Restart Dock
+  tags: osx-defaults
 
 ###############################################################################
 # Mission Control, Spaces                                                     #
@@ -165,3 +169,4 @@
       value: false
   notify:
     - Restart Dock
+  tags: osx-defaults
