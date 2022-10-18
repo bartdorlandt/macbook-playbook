@@ -3,7 +3,7 @@
   ansible.builtin.copy:
     owner: "{{ ansible_env.USER }}"
     group: "{{ user_group }}"
-    mode: 0750
+    mode: 0600
     dest: "{{ ansible_env.HOME }}/.forward"
     content: |
       {{ email }}
