@@ -63,6 +63,7 @@ dockitems_persist:
 homebrew_installed_packages:
   - bat
   - coreutils
+  - docker
   - fd
   - fzf
   - gh
