@@ -5,7 +5,6 @@
     dest: "{{ ansible_env.HOME }}/.gitconfig"
     mode: 0600
   when: configure_dotfiles
-  tags: git
 
 - name: Make sure git directories exist
   ansible.builtin.file:
@@ -13,4 +12,3 @@
     state: directory
     mode: "750"
   loop: "{{ git_dirs }}"
-  tags: git

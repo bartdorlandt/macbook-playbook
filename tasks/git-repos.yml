@@ -7,4 +7,3 @@
     accept_hostkey: true
   loop: "{{ git_repos }}"
   when: git_repos is defined
-  tags: git

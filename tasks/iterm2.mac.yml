@@ -5,7 +5,6 @@
     key: SUEnableAutomaticChecks
     type: bool
     value: true
-  tags: iterm2
 
 - name: Ensure iTerm directories are initialized if they are not already.
   ansible.builtin.file:
@@ -13,7 +12,6 @@
     state: directory
     mode: "0755"
   become: false
-  tags: iterm2
 
 - name: Iterm2 profile symbolic link
   ansible.builtin.file:
@@ -24,4 +22,3 @@
     state: link
   loop:
     - iterm2.json
-  tags: iterm2

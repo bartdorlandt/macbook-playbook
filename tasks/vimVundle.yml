@@ -5,4 +5,3 @@
     dest: "~/.vim/bundle/Vundle.vim"
     update: true
     accept_hostkey: true
-  tags: vim

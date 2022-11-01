@@ -4,7 +4,6 @@
     path: "{{ ansible_env.HOME }}/.config/karabiner"
     state: directory
     mode: "700"
-  tags: karabiner
 
 - name: Karabiner profile symbolic link
   ansible.builtin.file:
@@ -15,4 +14,3 @@
     state: link
   loop:
     - karabiner.json
-  tags: karabiner

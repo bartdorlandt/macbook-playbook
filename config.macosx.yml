@@ -78,7 +78,6 @@ homebrew_installed_packages:
   - openssh
   - prettyping
   - pwgen
-  - pyenv
   - ripgrep
   - tailscale
   - telnet

@@ -1,7 +1,6 @@
 ---
 - name: Add VScode
   become: true
-  tags: vscode
   block:
     - name: Download VScode asc key
       ansible.builtin.get_url:

@@ -103,7 +103,7 @@
       tags: ohmyzsh
     - name: Import task - sublimetext
       ansible.builtin.import_tasks: tasks/sublime-text.yml
-      tags: sublime-text
+      tags: sublimetext
     - name: Import task - dynv6
       ansible.builtin.import_tasks: tasks/dynv6.yml
       tags: dynv6

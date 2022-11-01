@@ -5,7 +5,6 @@
     dest: ~/.oh-my-zsh
     depth: 1
     update: false
-  tags: ["zsh"]
 
 - name: Ensure custom oh-my-zsh theme exists
   ansible.builtin.copy:
@@ -15,16 +14,12 @@
   loop:
     - bart.zsh-theme
   become: false
-  tags: ["zsh"]
 
 - name: Git pull virtualenv-autodetect
   ansible.builtin.git:
     repo: https://github.com/RobertDeRose/virtualenv-autodetect.git
     dest: "{{ ansible_env.HOME }}/git/virtualenv-autodetect"
     update: true
-  tags:
-    - git
-    - zsh
 
 - name: Git pull zsh-autosuggestions
   ansible.builtin.git:
@@ -32,9 +27,6 @@
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     depth: 1
     update: true
-  tags:
-    - git
-    - zsh
 
 - name: Git pull zsh-syntax-highlighting
   ansible.builtin.git:
@@ -42,11 +34,8 @@
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
     depth: 1
     update: true
-  tags:
-    - git
-    - zsh
 
-- name: Add poetry zsh plugin
+- name: Add poetry zsh plugin directory
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/poetry"
     state: directory
@@ -65,10 +54,7 @@
     dest: "{{ ansible_env.HOME }}/git/fzf"
     depth: 1
     update: true
-  tags:
-    - git
-    - fzf
-    - zsh
+  tags: fzf
 
 - name: Install fzf
   ansible.builtin.command: "{{ ansible_env.HOME }}/git/fzf/install --all"

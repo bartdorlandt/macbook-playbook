@@ -5,4 +5,3 @@
     src: "~/Library/Mobile Documents/com~apple~CloudDocs/"
     state: link
   become: false
-  tags: ["iclouddrive"]
