@@ -18,27 +18,39 @@
     - name: Git setup
       ansible.builtin.import_tasks: tasks/git-setup.yml
       tags: git
+    - name: Include the hombrew role
+      ansible.builtin.include_role:
+        name: geerlingguy.mac.homebrew
+        apply:
+          tags:
+            - homebrew
+      tags: homebrew
 
     - name: MAC OS tasks
       when: OS_mac
       block:
-        - name: Include the hombrew role
-          ansible.builtin.include_role:
-            name: geerlingguy.mac.homebrew
-          tags: homebrew
         - name: Other MAC software
           ansible.builtin.include_role:
             name: geerlingguy.mac.mas
+            apply:
+              tags:
+                - mas
           when: mas_installed_apps or mas_installed_app_ids
           tags: mas
         - name: Setup the dock
           ansible.builtin.include_role:
             name: geerlingguy.mac.dock
+            apply:
+              tags:
+                - dock
           when: configure_dock
           tags: dock
         - name: OSX defaults
           ansible.builtin.include_role:
             name: osx-defaults
+            apply:
+              tags:
+                - osx-defaults
           tags: osx-defaults
         - name: App iClouddrive
           ansible.builtin.import_tasks: tasks/iclouddrive.mac.yml
@@ -60,14 +72,13 @@
         - name: Install docker
           ansible.builtin.include_role:
             name: geerlingguy.docker
+            apply:
+              tags:
+                - docker
           vars:
             docker_users: ["{{ ansible_env.USER }}"]
           tags: docker
           when: install_docker
-        - name: Include the hombrew role
-          ansible.builtin.include_role:
-            name: monolithprojects.homebrew
-          tags: homebrew
         - name: Install packages # noqa package-latest
           ansible.builtin.apt:
             package: packages
@@ -83,6 +94,9 @@
     - name: Dotfiles
       ansible.builtin.include_role:
         name: geerlingguy.dotfiles
+        apply:
+          tags:
+            - dotfiles
       tags: dotfiles
       when: configure_dotfiles
 
