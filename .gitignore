@@ -1,7 +1,7 @@
 .DS_Store
 *.retry
 roles/*
-!roles/osx-defaults/
+!roles/osx_defaults/
 .env.yml
 test.yml
 .trunk

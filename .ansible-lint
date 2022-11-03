@@ -3,7 +3,9 @@
 exclude_paths:
   - geerlingguy.mac-dev-playbook/
   - roles/geerlingguy.dotfiles/
+  - roles/geerlingguy.docker/
   - roles/elliotweiser.osx-command-line-tools/
+  - roles/bartdorlandt.ohmyzsh/
   - .vscode/
   - config.yml
   - config.ubuntu.yml
