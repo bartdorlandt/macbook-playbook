@@ -61,3 +61,5 @@ pip_packages:
 
 git_init_default_branch: master
 git_pull_rebase: false
+
+ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting tmux poetry"

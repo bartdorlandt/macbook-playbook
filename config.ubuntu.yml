@@ -67,3 +67,4 @@ brew_formulae: []
 # homebrew_user: "{{ lookup('env', 'USER') }}"
 
 vscode_install: true
+ohmyzsh_plugins: "git debian zsh-autosuggestions zsh-syntax-highlighting tmux poetry"

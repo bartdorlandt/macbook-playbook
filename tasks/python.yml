@@ -3,8 +3,7 @@
   ansible.builtin.shell: curl https://pyenv.run | bash
   args:
     creates: "{{ ansible_env.HOME }}/.pyenv"
-  tags:
-    - pyenv
+  tags: pyenv
 
 - name: Install Python interpreters
   ansible.builtin.command: "pyenv install {{ item }}"
