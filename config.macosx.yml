@@ -56,8 +56,8 @@ dockitems_persist:
   - name: "Telegram"
     path: "/Applications/Telegram.app/"
     pos: 10
-  - name: "System Preferences"
-    path: "/System/Applications/System Preferences.app/"
+  - name: "System Settings"
+    path: "/System/Applications/System Settings.app/"
     pos: 11
 
 homebrew_installed_packages:
