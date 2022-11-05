@@ -119,6 +119,22 @@
           tags:
             - ohmyzsh
       tags: ohmyzsh
+    - name: Poetry
+      ansible.builtin.include_role:
+        name: bartdorlandt.poetry
+        apply:
+          tags:
+            - poetry
+      vars:
+        poetry_ohmyzsh_plugin: true
+      tags: poetry
+    - name: Fzf
+      ansible.builtin.include_role:
+        name: bartdorlandt.fzf
+        apply:
+          tags:
+            - fzf
+      tags: fzf
     - name: Import task - sublimetext
       ansible.builtin.import_tasks: tasks/sublime-text.yml
       tags: sublimetext

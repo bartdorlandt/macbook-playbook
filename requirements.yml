@@ -1,11 +1,8 @@
 ---
+# Generic requirements for all OSes
 roles:
-  - name: elliotweiser.osx-command-line-tools
   - name: geerlingguy.dotfiles
   - name: geerlingguy.docker
-  - name: monolithprojects.homebrew
   - name: bartdorlandt.ohmyzsh
-    src: git+https://github.com/bartdorlandt/ansible-role-ohmyzsh.git
-
-collections:
-  - name: geerlingguy.mac
+  - name: bartdorlandt.poetry
+  - name: bartdorlandt.fzf
