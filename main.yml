@@ -65,26 +65,40 @@
     - name: Ubuntu OS tasks
       when: OS_ubuntu
       block:
-        - name: Install apt sources
-          ansible.builtin.import_tasks: tasks/vscode.ubuntu.yml
+        - name: Install vscode
+          ansible.builtin.include_role:
+            name: gantsign.visual-studio-code
+            apply:
+              tags:
+                - vscode
           tags: vscode
-          when: vscode_install
+        - name: Install apt packages # noqa package-latest
+          ansible.builtin.apt:
+            package: "{{ packages }}"
+            state: latest
+          tags: packages
+          when: packages
+          become: true
+        - name: Install snap classic packages # noqa package-latest
+          community.general.snap:
+            name: "{{ item.name }}"
+            classic: "{{ item.classic | default(false) }}"
+          loop: "{{ snap_packages }}"
+          tags: snap
+          when: snap_packages
+          become: true
         - name: Install docker
           ansible.builtin.include_role:
             name: geerlingguy.docker
             apply:
+              become: true
               tags:
                 - docker
           vars:
+            docker_install_compose_plugin: true
             docker_users: ["{{ ansible_env.USER }}"]
           tags: docker
           when: install_docker
-        - name: Install packages # noqa package-latest
-          ansible.builtin.apt:
-            package: packages
-            state: latest
-          tags: packages
-          when: packages
 
     # System independent tasks
     - name: Set up dirs and files

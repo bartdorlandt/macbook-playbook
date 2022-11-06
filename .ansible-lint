@@ -5,7 +5,7 @@ exclude_paths:
   - roles/geerlingguy.dotfiles/
   - roles/geerlingguy.docker/
   - roles/elliotweiser.osx-command-line-tools/
-  - roles/bartdorlandt.ohmyzsh/
+  - roles/gantsign.visual-studio-code/
   - .vscode/
   - config.yml
   - config.ubuntu.yml

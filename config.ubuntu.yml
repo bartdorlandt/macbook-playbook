@@ -31,7 +31,6 @@ packages:
   - gparted
   - htop
   - insync
-  - insync-nautilus
   - iotop
   - jq
   - nfs-common
@@ -41,8 +40,6 @@ packages:
   - ripgrep
   - scdaemon
   - signal-desktop
-  - sni-qt
-  - sublime-text
   - tcpdump
   - tilix
   - tmux
@@ -57,6 +54,10 @@ packages:
   - xournal
   - zsh
 
+snap_packages:
+  - { name: sublime-text, classic: true }
+  - { name: authy }
+
 # Homebrew packages to be installed
 brew_formulae: []
 # Homebrew git repo
@@ -66,5 +67,4 @@ brew_formulae: []
 # Homebrew user
 # homebrew_user: "{{ lookup('env', 'USER') }}"
 
-vscode_install: true
 ohmyzsh_plugins: "git debian zsh-autosuggestions zsh-syntax-highlighting tmux poetry"
