@@ -99,17 +99,20 @@ homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - authy
-  - copyclip
+  - clipy
   - docker
   - drawio
   - dropbox
   - firefox
+  - github
   - google-chrome
   - google-drive
   - iterm2
   - karabiner-elements
+  - keepassx
   - logi-options-plus
   - notion
+  - rectangle
   - signal
   - slack
   - sublime-text
