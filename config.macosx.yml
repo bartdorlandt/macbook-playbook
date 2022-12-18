@@ -76,6 +76,7 @@ homebrew_installed_packages:
   - jq
   - mtr
   - openssh
+  - podman
   - prettyping
   - pwgen
   - ripgrep
@@ -113,6 +114,7 @@ homebrew_cask_apps:
   - logi-options-plus
   - notion
   - rectangle
+  - podman-desktop
   - signal
   - slack
   - sublime-text
