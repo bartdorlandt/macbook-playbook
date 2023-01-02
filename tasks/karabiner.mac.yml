@@ -5,12 +5,13 @@
     state: directory
     mode: "700"
 
-- name: Karabiner profile symbolic link
+- name: Karabiner profile
   ansible.builtin.file:
     src: "{{ playbook_dir }}/tasks/files/{{ item }}"
     dest: "~/.config/karabiner/{{ item }}"
     owner: "{{ ansible_env.USER }}"
     group: "{{ user_group }}"
-    state: link
+    state: "file"
+    mode: 0644
   loop:
     - karabiner.json
