@@ -44,6 +44,16 @@
       key: NSAutomaticPeriodSubstitutionEnabled
       type: bool
       value: false
+    # - desc: "Accessibility Reduce Motion"
+    #   domain: "com.apple.universalaccess"
+    #   key: reduceMotion
+    #   type: bool
+    #   value: true
+    # - desc: "Accessibility Reduce Motion"
+    #   domain: "com.apple.Accessibility"
+    #   key: ReduceMotionEnabled
+    #   type: bool
+    #   value: true
   notify:
     - Restart MenuBar
     - Restart Dock
