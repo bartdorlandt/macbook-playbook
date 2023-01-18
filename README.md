@@ -77,3 +77,7 @@ or
 - **Services**:
   - Text > Convert text to Simplified Chinese: off
   - Text > Convert text to Traditional Chinese: off
+- **Music**:
+  - Disable loading Music in certain cases:
+
+        launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
