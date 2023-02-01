@@ -32,33 +32,39 @@ dockitems_persist:
   - name: "iTerm"
     path: "/Applications/iTerm.app/"
     pos: 2
+  - name: "Notes"
+    path: "/System/Applications/Notes.app/"
+    pos: 3
   - name: "Sublime Text"
     path: "/Applications/Sublime Text.app/"
-    pos: 3
+    pos: 4
   - name: "Slack"
     path: "/Applications/Slack.app/"
-    pos: 4
+    pos: 5
   - name: "Visual Studio Code"
     path: "/Applications/Visual Studio Code.app/"
-    pos: 5
+    pos: 6
   - name: "Notion"
     path: "/Applications/Notion.app/"
-    pos: 6
+    pos: 7
   - name: "Authy Desktop"
     path: "/Applications/Authy Desktop.app/"
-    pos: 7
+    pos: 8
   - name: "WhatsApp"
     path: "/Applications/WhatsApp.app/"
-    pos: 8
+    pos: 9
   - name: "Signal"
     path: "/Applications/Signal.app/"
-    pos: 9
+    pos: 10
   - name: "Telegram"
     path: "/Applications/Telegram.app/"
-    pos: 10
+    pos: 11
   - name: "System Settings"
     path: "/System/Applications/System Settings.app/"
     pos: 11
+  - name: "Bitwarden"
+    path: "/Applications/Bitwarden.app/"
+    pos: 12
 
 homebrew_installed_packages:
   - bat
@@ -76,7 +82,6 @@ homebrew_installed_packages:
   - jq
   - mtr
   - openssh
-  - podman
   - prettyping
   - pwgen
   - ripgrep
@@ -100,8 +105,10 @@ homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - authy
+  - bitwarden
   - clipy
   - docker
+  - dockutil
   - drawio
   - dropbox
   - firefox
@@ -114,7 +121,7 @@ homebrew_cask_apps:
   - logi-options-plus
   - notion
   - rectangle
-  - podman-desktop
+  - pycharm-ce
   - signal
   - slack
   - sublime-text

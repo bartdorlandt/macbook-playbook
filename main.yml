@@ -61,6 +61,9 @@
         - name: App karabiner
           ansible.builtin.import_tasks: tasks/karabiner.mac.yml
           tags: karabiner
+        - name: Sudo touchID
+          ansible.builtin.import_tasks: tasks/sudo_touchid.mac.yml
+          tags: touchid
 
     - name: Ubuntu OS tasks
       when: OS_ubuntu
