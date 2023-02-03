@@ -17,7 +17,6 @@ dockitems_remove:
   - Messages
   - Music
   - News
-  - Notes
   - Numbers
   - Pages
   - Photos
@@ -82,6 +81,7 @@ homebrew_installed_packages:
   - jq
   - mtr
   - openssh
+  - poetry
   - prettyping
   - pwgen
   - ripgrep

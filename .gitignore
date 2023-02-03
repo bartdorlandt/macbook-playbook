@@ -2,6 +2,7 @@
 *.retry
 roles/*
 !roles/osx_defaults/
+!roles/poetry/
 .env.yml
 test.yml
 .trunk
