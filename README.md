@@ -65,6 +65,7 @@ or
   at login (AppCleaner and OneDrive)
 - **Keyboard Shortcuts**: Under System Preferences / Keyboard:
   - Lanuchpad: Disable all
+  - Input Sources: Disable all
   - Mission Control:
     - Mission Control: F11
     - Switch Desktop 1: ctrl+1
