@@ -56,7 +56,7 @@ or
   - Right top: Notification Center
   - Left bottom: Desktop
   - Right bottom: -
-- **Notification Centre**: Set the order of items and allow permission
+- **Notification Centre**: Set the order o  f items and allow permission
 - **VScode**: Install VScode [MAC](https://code.visualstudio.com/docs?dv=osx) and sync with github
 - **Sublime Text**: Install "Sync settings" package and sync via github gist
 - **VirtualBox**: System Preferences → Security & Privacy → General, allow the kernel extension
