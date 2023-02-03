@@ -71,7 +71,9 @@ or
     - Switch Desktop 1: ctrl+1
     - Switch Desktop 2: ctrl+2
     - Disable all
-  - Keyboard:
+  - Services: Disable:
+    - Open man Page in Terminal
+    - Search man Page Index in Terminal
 - **Dock & Menu Bar**:
   - Automatically hiden and show the dock: on
   - Show recent applications in Dock: off
