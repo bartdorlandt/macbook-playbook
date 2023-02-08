@@ -4,13 +4,13 @@
   connection: local
 
   pre_tasks:
-    - name: Include variables
+    - name: Include config.yml variables
       ansible.builtin.include_vars: config.yml
       tags: always
-    - name: OS specific variables
+    - name: OS variables - config.os_type.yml
       ansible.builtin.include_vars: "{{ playbook_dir }}/config.{{ ansible_distribution | lower }}.yml"
       tags: always
-    - name: Include env.yml variables
+    - name: Include .env.yml variables
       ansible.builtin.include_vars: .env.yml
       tags: always
 

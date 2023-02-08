@@ -6,7 +6,7 @@
     mode: "700"
 
 - name: Karabiner profile
-  ansible.builtin.file:
+  ansible.builtin.copy:
     src: "{{ playbook_dir }}/tasks/files/{{ item }}"
     dest: "~/.config/karabiner/{{ item }}"
     owner: "{{ ansible_env.USER }}"

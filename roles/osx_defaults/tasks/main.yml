@@ -137,7 +137,7 @@
       domain: "com.apple.dock"
       key: autohide
       type: bool
-      value: true
+      value: false
     - desc: "Dock show delay"
       domain: "com.apple.dock"
       key: autohide-delay

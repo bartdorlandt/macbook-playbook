@@ -127,7 +127,6 @@ homebrew_cask_apps:
   - sublime-text
   - telegram
   - virtualbox
-  - virtualbox-extension-pack
   - visual-studio-code
   - whatsapp
   - wireshark
