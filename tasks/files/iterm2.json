@@ -1,9 +1,8 @@
 {
-"Profiles": [
-{
   "Badge Text" : "",
   "Working Directory" : "\/Users\/bart",
   "Prompt Before Closing 2" : 1,
+  "Dynamic Profile Filename" : "\/Users\/bart.dorlandt\/Library\/Application Support\/iTerm2\/DynamicProfiles\/iterm2.json",
   "Selected Text Color" : {
     "Green Component" : 0,
     "Red Component" : 0,
@@ -49,7 +48,7 @@
     "slogin",
     "telnet"
   ],
-  "Scrollback Lines" : 0,
+  "Scrollback Lines" : 100000,
   "HotKey Window Reopens On Activation" : false,
   "Prevent Opening in a Tab" : false,
   "Flashing Bell" : false,
@@ -59,9 +58,10 @@
     "Red Component" : 0.73333334922790527,
     "Blue Component" : 0
   },
+  "Open Password Manager Automatically" : false,
   "Icon" : 0,
   "Use Non-ASCII Font" : false,
-  "Shortcut" : "A",
+  "Shortcut" : "",
   "Background Image Location" : "",
   "Bold Color" : {
     "Green Component" : 1,
@@ -466,6 +466,7 @@
     "Red Component" : 1,
     "Blue Component" : 1
   },
+  "Open Toolbelt" : true,
   "Ansi 6 Color" : {
     "Green Component" : 0.73333334922790527,
     "Red Component" : 0,
@@ -498,6 +499,4 @@
     "Red Component" : 0.73333334922790527,
     "Blue Component" : 0.73333334922790527
   }
-}
-]
 }

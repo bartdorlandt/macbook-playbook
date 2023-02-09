@@ -65,15 +65,23 @@ or
   at login (AppCleaner and OneDrive)
 - **Keyboard Shortcuts**: Under System Preferences / Keyboard:
   - Lanuchpad: Disable all
-  - Input Sources: Disable all
+  - Input Sources: Disable all (needed in PyCharm)
   - Mission Control:
     - Mission Control: F11
     - Switch Desktop 1: ctrl+1
     - Switch Desktop 2: ctrl+2
     - Disable all
-  - Services: Disable:
-    - Open man Page in Terminal
-    - Search man Page Index in Terminal
+  - Services: 
+    - Files and Folders:
+      - remove "Send File to Bluetooth Device" shortcut (needed in iTerm2)
+    - Disable:
+      - Internet
+      - Messaging
+      - Pictures
+      - Searching
+      - Text:
+        - Open man Page in Terminal
+        - Search man Page Index in Terminal
 - **Dock & Menu Bar**:
   - Automatically hiden and show the dock: on
   - Show recent applications in Dock: off
