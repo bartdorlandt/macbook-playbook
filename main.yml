@@ -135,6 +135,7 @@
         apply:
           tags:
             - shell_prompt
+      tags: shell_prompt
     - name: Poetry
       ansible.builtin.include_role:
         name: poetry
