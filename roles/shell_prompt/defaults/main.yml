@@ -19,4 +19,4 @@ starship_config: |
   disabled = false
 
   [git_branch]  
-  ignore_branches = ['master', 'main']
+  symbol = '🌱 '
