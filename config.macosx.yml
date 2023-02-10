@@ -45,28 +45,28 @@ dockitems_persist:
     pos: 6
   - name: "PyCharm CE"
     path: "/Applications/PyCharm CE.app"
-    pos: 10
+    pos: 7
   - name: "Notion"
     path: "/Applications/Notion.app/"
-    pos: 11
+    pos: 8
   - name: "Authy Desktop"
     path: "/Applications/Authy Desktop.app/"
-    pos: 12
+    pos: 9
   - name: "WhatsApp"
     path: "/Applications/WhatsApp.app/"
-    pos: 13
+    pos: 10
   - name: "Signal"
     path: "/Applications/Signal.app/"
-    pos: 14
+    pos: 11
   - name: "Telegram"
     path: "/Applications/Telegram.app/"
-    pos: 15
+    pos: 12
   - name: "System Settings"
     path: "/System/Applications/System Settings.app/"
-    pos: 16
+    pos: 13
   - name: "Bitwarden"
     path: "/Applications/Bitwarden.app/"
-    pos: 17
+    pos: 14
 
 homebrew_installed_packages:
   - bat
