@@ -1,10 +1,12 @@
 .DS_Store
 *.retry
-roles/*
-!roles/osx_defaults/
-!roles/poetry/
+roles/bartdorlandt.fzf/
+roles/bartdorlandt.ohmyzsh/
+roles/elliotweiser.osx-command-line-tools/
+roles/geerlingguy.docker/
+roles/geerlingguy.dotfiles/
+roles/monolithprojects.homebrew/
 .env.yml
 test.yml
-.trunk
 .vscode
 .idea

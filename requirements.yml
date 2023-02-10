@@ -3,5 +3,4 @@
 roles:
   - name: geerlingguy.dotfiles
   - name: geerlingguy.docker
-  - name: bartdorlandt.ohmyzsh
   - name: bartdorlandt.fzf
