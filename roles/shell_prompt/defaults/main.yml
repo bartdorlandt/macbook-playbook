@@ -17,3 +17,6 @@ starship_config: |
 
   [status]
   disabled = false
+
+  [git_branch]  
+  ignore_branches = ['master', 'main']
