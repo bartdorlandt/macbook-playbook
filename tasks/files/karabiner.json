@@ -906,6 +906,27 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Disable Cmd+H (optional left_option)",
+                        "manipulators": [
+                            {
+                                "description": "",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional":[
+                                            "left_option"
+                                        ]
+
+                                    }
+                                },
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
