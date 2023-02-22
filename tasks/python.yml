@@ -45,11 +45,12 @@
     executable: "{{ item.executable | default(pip_executable) }}"
   loop: "{{ pip_packages }}"
 
-- name: Git pull virtualenv-autodetect
-  ansible.builtin.git:
-    repo: https://github.com/RobertDeRose/virtualenv-autodetect.git
-    dest: "{{ ansible_env.HOME }}/git/virtualenv-autodetect"
-    update: true
+# clashing with pycharm
+#- name: Git pull virtualenv-autodetect
+#  ansible.builtin.git:
+#    repo: https://github.com/RobertDeRose/virtualenv-autodetect.git
+#    dest: "{{ ansible_env.HOME }}/git/virtualenv-autodetect"
+#    update: true
 
 - name: Create pypirc file
   ansible.builtin.template:
