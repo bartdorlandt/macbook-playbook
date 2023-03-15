@@ -1,6 +1,9 @@
 ---
-# Generic requirements for all OSes
 roles:
   - name: geerlingguy.dotfiles
   - name: geerlingguy.docker
   - name: bartdorlandt.fzf
+  - name: elliotweiser.osx-command-line-tools
+
+collections:
+  - name: geerlingguy.mac

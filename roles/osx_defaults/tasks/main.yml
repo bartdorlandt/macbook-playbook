@@ -10,11 +10,11 @@
     value: "{{ item.value | default(omit) }}"
     state: "{{ item.state | default(omit) }}"
   loop:
-    - desc: "Remove appearence key for auto light/dark"
+    - desc: "Remove appearance key for auto light/dark"
       domain: ".GlobalPreferences"
       key: AppleInterfaceStyleSwitchesAutomatically
       state: absent
-    - desc: "Set Appearence to Dark"
+    - desc: "Set appearance to Dark"
       domain: ".GlobalPreferences"
       key: AppleInterfaceStyle
       type: string

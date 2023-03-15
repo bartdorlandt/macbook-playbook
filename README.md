@@ -1,4 +1,4 @@
-# Laptop Ansible Playbook (Mac/Linux)
+# Macbook Ansible Playbook
 
 Almost all of this comes from oxyc ['oxyc/mac-playbook'](https://github.com/oxyc/mac-playbook).
 The playbook contained in this repo does nothing except delegate all functionality to [`geerlingguy/mac-dev-playbook`](https://github.com/geerlingguy/mac-dev-playbook)'s playbook.
@@ -20,7 +20,7 @@ The playbook contained in this repo does nothing except delegate all functionali
     mkdir -p ~/git/
 
     # Clone this repository to your local drive.
-    git clone --recursive https://github.com/bartdorlandt/laptop-playbooks.git ~/git/laptop-playbooks
+    git clone --recursive https://github.com/bartdorlandt/macbook-playbook.git ~/git/macbook-playbook
 
     # export path so ansible binaries are going to be on path
     export PATH=~/Library/Python/3.8/bin:$PATH

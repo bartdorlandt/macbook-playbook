@@ -1,12 +1,12 @@
 ---
-- name: Restart MenuBar # noqa ignore-errars
+- name: Restart MenuBar # noqa ignore-errors
   ansible.builtin.command: killall SystemUIServer
   failed_when: false
 
-- name: Restart Dock # noqa ignore-errars
+- name: Restart Dock # noqa ignore-errors
   ansible.builtin.command: killall Dock
   failed_when: false
 
-- name: Restart Finder # noqa ignore-errars
+- name: Restart Finder # noqa ignore-errors
   ansible.builtin.command: killall Finder
   failed_when: false

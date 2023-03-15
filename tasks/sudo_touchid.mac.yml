@@ -1,6 +1,6 @@
 ---
 - name: Set content of sudo file as fact
-  set_fact:
+  ansible.builtin.set_fact:
     sudo_conf: "{{ lookup('file', '/etc/pam.d/sudo') }}"
   ignore_errors: true
 

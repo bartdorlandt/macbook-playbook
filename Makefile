@@ -38,9 +38,3 @@ pip-install-ansible: upgrade-pip
 
 ./roles:
 	ansible-galaxy install -r requirements.yml $(FORCE_FLAG)
-ifeq ($(UNAME),Darwin)
-	ansible-galaxy install -r requirements.mac.yml $(FORCE_FLAG)
-endif
-ifeq ($(UNAME),Linux)
-	ansible-galaxy install -r requirements.linux.yml $(FORCE_FLAG)
-endif

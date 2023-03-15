@@ -7,9 +7,6 @@
     - name: Include config.yml variables
       ansible.builtin.include_vars: config.yml
       tags: always
-    - name: OS variables - config.os_type.yml
-      ansible.builtin.include_vars: "{{ playbook_dir }}/config.{{ ansible_distribution | lower }}.yml"
-      tags: always
     - name: Include .env.yml variables
       ansible.builtin.include_vars: .env.yml
       tags: always
@@ -26,82 +23,41 @@
             - homebrew
       tags: homebrew
 
-    - name: MAC OS tasks
-      when: OS_mac
-      block:
-        - name: Other MAC software
-          ansible.builtin.include_role:
-            name: geerlingguy.mac.mas
-            apply:
-              tags:
-                - mas
-          when: mas_installed_apps or mas_installed_app_ids
-          tags: mas
-        - name: Setup the dock
-          ansible.builtin.include_role:
-            name: geerlingguy.mac.dock
-            apply:
-              tags:
-                - dock
-          when: configure_dock
-          tags: dock
-        - name: OSX defaults
-          ansible.builtin.include_role:
-            name: osx_defaults
-            apply:
-              tags:
-                - osx_defaults
-          tags: osx_defaults
-        - name: App iClouddrive
-          ansible.builtin.import_tasks: tasks/iclouddrive.mac.yml
-          tags: iclouddrive
-        - name: App iTerm2
-          ansible.builtin.import_tasks: tasks/iterm2.mac.yml
-          tags: iterm2
-        - name: App karabiner
-          ansible.builtin.import_tasks: tasks/karabiner.mac.yml
-          tags: karabiner
-        - name: Sudo touchID
-          ansible.builtin.import_tasks: tasks/sudo_touchid.mac.yml
-          tags: touchid
-
-    - name: Ubuntu OS tasks
-      when: OS_ubuntu
-      block:
-        - name: Install vscode
-          ansible.builtin.include_role:
-            name: gantsign.visual-studio-code
-            apply:
-              tags:
-                - vscode
-          tags: vscode
-        - name: Install apt packages # noqa package-latest
-          ansible.builtin.apt:
-            package: "{{ packages }}"
-            state: latest
-          tags: packages
-          when: packages
-          become: true
-        - name: Install snap classic packages # noqa package-latest
-          community.general.snap:
-            name: "{{ item.name }}"
-            classic: "{{ item.classic | default(false) }}"
-          loop: "{{ snap_packages }}"
-          tags: snap
-          when: snap_packages
-          become: true
-        - name: Install docker
-          ansible.builtin.include_role:
-            name: geerlingguy.docker
-            apply:
-              become: true
-              tags:
-                - docker
-          vars:
-            docker_install_compose_plugin: true
-            docker_users: ["{{ ansible_env.USER }}"]
-          tags: docker
-          when: install_docker
+    - name: Other MAC software
+      ansible.builtin.include_role:
+        name: geerlingguy.mac.mas
+        apply:
+          tags:
+            - mas
+      when: mas_installed_apps or mas_installed_app_ids
+      tags: mas
+    - name: Setup the dock
+      ansible.builtin.include_role:
+        name: geerlingguy.mac.dock
+        apply:
+          tags:
+            - dock
+      when: configure_dock
+      tags: dock
+    - name: OSX defaults
+      ansible.builtin.include_role:
+        name: osx_defaults
+        apply:
+          tags:
+            - osx_defaults
+      tags: osx_defaults
+    - name: App iClouddrive
+      ansible.builtin.import_tasks: tasks/iclouddrive.mac.yml
+      tags: iclouddrive
+    - name: App iTerm2
+      ansible.builtin.import_tasks: tasks/iterm2.mac.yml
+      tags: iterm2
+    - name: App karabiner
+      ansible.builtin.import_tasks: tasks/karabiner.mac.yml
+      tags: karabiner
+    - name: Sudo touchID
+      ansible.builtin.import_tasks: tasks/sudo_touchid.mac.yml
+      tags: touchid
 
     # System independent tasks
     - name: Set up dirs and files
