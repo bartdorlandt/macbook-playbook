@@ -28,14 +28,16 @@ dotfiles_files:
 # Pyenv config
 # # Latest Python versions
 # pyenv_python38_version: "3.8.13"
-# pyenv_python39_version: "3.9.13"
-pyenv_python310_version: "3.10.6"
+#  pyenv_python39_version: "3.9.16"
+pyenv_python310_version: "3.10.10"
+pyenv_python311_version: "3.11.2"
 
 # Python versions to install
 pyenv_python_versions:
   # - "{{ pyenv_python38_version }}"
   # - "{{ pyenv_python39_version }}"
   - "{{ pyenv_python310_version }}"
+  - "{{ pyenv_python311_version }}"
 
 # Set global pyenv version
 pyenv_global: "{{ pyenv_python310_version }}"
@@ -57,7 +59,8 @@ pip_packages:
 git_init_default_branch: master
 git_pull_rebase: false
 
-ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting tmux poetry"
+# ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting tmux poetry"
+ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting"
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true

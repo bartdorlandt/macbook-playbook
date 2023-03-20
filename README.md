@@ -1,7 +1,7 @@
 # Macbook Ansible Playbook
 
 Almost all of this comes from oxyc ['oxyc/mac-playbook'](https://github.com/oxyc/mac-playbook).
-The playbook contained in this repo does nothing except delegate all functionality to [`geerlingguy/mac-dev-playbook`](https://github.com/geerlingguy/mac-dev-playbook)'s playbook.
+The playbook contained in this repo delegates some functionality to [`geerlingguy/mac-dev-playbook`](https://github.com/geerlingguy/mac-dev-playbook)'s playbook and does some other things.
 
 *Note: Do NOT install anything you haven't looked through–this is a highly opinionated set of configurations. Running the playbook will affect pretty much every aspect of your environment so for others than me, this is mostly a reference point.*
 
@@ -22,25 +22,33 @@ The playbook contained in this repo does nothing except delegate all functionali
     # Clone this repository to your local drive.
     git clone --recursive https://github.com/bartdorlandt/macbook-playbook.git ~/git/macbook-playbook
 
-    # export path so ansible binaries are going to be on path
+    # copy and edit the .env.yml file
+    cp env.yml-template .env.yml
+    vi .env.yml
+
+    # export path so ansible binaries are going to be on path. (use the correct version, `python -V`)
     export PATH=~/Library/Python/3.8/bin:$PATH
 
     # Install dependencies for MAC
-    make install
+    ./run install
 
     # Run the playbook (Some casks might need an interactive password during installation).
-    make provision
+    ./run provision
 
 
 ### Running a specific set of tagged tasks
 
-You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook`'s `--tags` flag. The tags available are `dotfiles`, `homebrew`, `mas` and `osx`.
+You can filter which part of the provisioning process to run by specifying a set of tags using `TAGS="<tag1>,<tag2>"` flag. The tags can be retrieved using:
 
-    ansible-playbook main.yml -K --tags dotfiles,homebrew
+    ./run list-tags
 
-or
+example:
 
-    ansible-playbook main.yml -K --tags post
+    TAGS=dotfiles,homebrew ./run all
+
+using playbook steps:
+
+    ./run step
 
 ## Future additions
 
@@ -56,7 +64,7 @@ or
   - Right top: Notification Center
   - Left bottom: Desktop
   - Right bottom: -
-- **Notification Centre**: Set the order o  f items and allow permission
+- **Notification Centre**: Set the order of items and allow permission
 - **VScode**: Install VScode [MAC](https://code.visualstudio.com/docs?dv=osx) and sync with github
 - **Sublime Text**: Install "Sync settings" package and sync via github gist
 - **VirtualBox**: System Preferences → Security & Privacy → General, allow the kernel extension

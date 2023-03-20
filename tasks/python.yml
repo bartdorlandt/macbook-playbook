@@ -20,19 +20,6 @@
   ansible.builtin.set_fact:
     pyenv_global_active: "{{ pyenv_global_version.stdout_lines | join(' ') | trim() }}"
 
-# - name: Check if 'system' version is available
-#   ansible.builtin.command: pyenv versions
-#   register: pyenv_versions
-#   changed_when: false
-#   failed_when: false
-#   when: "'system' in pyenv_global"
-#   tags: ["python"]
-# - name: Remove 'system' from pyenv_global
-#   ansible.builtin.set_fact:
-#     pyenv_global: "{{ pyenv_global | replace('system', '') | trim() }}"
-#   when: "'system' in pyenv_global and 'system' not in pyenv_versions.stdout"
-#   tags: ["python"]
-
 - name: Set pyenv global version to {{ pyenv_global }}
   ansible.builtin.shell: pyenv global {{ pyenv_global }} && pyenv rehash
   when: "pyenv_global is defined and pyenv_global_active != pyenv_global"
@@ -44,7 +31,6 @@
     version: "{{ item.version | default(omit) }}"
     executable: "{{ item.executable | default(pip_executable) }}"
   loop: "{{ pip_packages }}"
-
 
 - name: Create pypirc file
   ansible.builtin.template:
