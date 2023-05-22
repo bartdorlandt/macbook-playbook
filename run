@@ -3,8 +3,8 @@
 set -o errexit
 set -o pipefail
 
-DC="${DC:-exec}"
-TAGS="${TAGS:all}"
+#DC="${DC:-exec}"
+TAGS="${TAGS:-all}"
 
 # If we're running in CI we need to disable TTY allocation for docker compose
 # commands that enable it by default, such as exec and run.

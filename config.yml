@@ -192,7 +192,7 @@ homebrew_cask_apps:
   - slack
   - sublime-text
   - telegram
-  - virtualbox
+  # - virtualbox
   - visual-studio-code
   - whatsapp
   - wireshark
