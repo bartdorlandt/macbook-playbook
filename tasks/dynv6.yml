@@ -1,6 +1,22 @@
 ---
+- name: Set script name for IPv4
+  ansible.builtin.set_fact:
+    dynv6_script: "dynv6_ipv4.sh"
+
+- name: Set script name for IPv6 or both
+  when: ddns.ip_version == "ipv6" or ddns.ip_version == "ipv6"
+  ansible.builtin.set_fact:
+    dynv6_script: "dynv6_ipv6_mac.sh"
+
+- name: Add "PATH" on top of crontab
+  ansible.builtin.cron:
+    name: PATH
+    env: yes
+    job: /usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
 - name: Ensure a job run every 10 minutes to update dynv6
   ansible.builtin.cron:
     name: "dynv6"
     minute: "*/10"
-    job: "token={{ dynv6_token }} $HOME/git/user_scripts_linux/dyndns/dynv6_com_mac.sh {{ dynv6_name }} > /tmp/{{ dynv6_name }}.log 2>&1"
+    job: "token={{ ddns.dynv6_token }} $HOME/git/user_scripts_linux/dyndns/{{ dynv6_script }} {{ ddns.dynv6_name }} > 
+    /tmp/{{ ddns.dynv6_name }}.log 2>&1"
