@@ -159,6 +159,7 @@ homebrew_installed_packages:
   - wget
   - whois
   - xping
+  - yq
 
 homebrew_taps:
   - homebrew/cask
