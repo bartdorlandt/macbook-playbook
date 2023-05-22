@@ -4,7 +4,7 @@
     dynv6_script: "dynv6_ipv4.sh"
 
 - name: Set script name for IPv6 or both
-  when: ddns.ip_version == "ipv6" or ddns.ip_version == "ipv6"
+  when: ddns.ip_version is defined and (ddns.ip_version == "ipv6" or ddns.ip_version == "both")
   ansible.builtin.set_fact:
     dynv6_script: "dynv6_ipv6_mac.sh"
 

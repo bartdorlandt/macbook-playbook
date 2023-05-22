@@ -29,8 +29,8 @@ dotfiles_files:
 # # Latest Python versions
 # pyenv_python38_version: "3.8.13"
 #  pyenv_python39_version: "3.9.16"
-pyenv_python310_version: "3.10.10"
-pyenv_python311_version: "3.11.2"
+pyenv_python310_version: "3.10.11"
+pyenv_python311_version: "3.11.3"
 
 # Python versions to install
 pyenv_python_versions:
@@ -134,6 +134,7 @@ homebrew_installed_packages:
   - bat
   - coreutils
   - docker
+  - dockutil
   - fd
   - fzf
   - gh
@@ -175,7 +176,6 @@ homebrew_cask_apps:
   - bitwarden
   - clipy
   - docker
-  - dockutil
   - drawio
   - dropbox
   - firefox

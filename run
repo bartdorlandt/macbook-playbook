@@ -31,7 +31,7 @@ function _echo_run {
 # -----------------------------------------------------------------------------
 function all {
   # Run the provisioning task
-  provision
+  provision "${@}"
 }
 
 function install {
@@ -63,7 +63,7 @@ function install:repo {
 
 function provision {
   echo "Run the ansible-playbook, TAGS: \"${TAGS}\""
-  playbook --tags="${TAGS}"
+  playbook --tags="${TAGS}" "${@}"
 }
 
 function step {

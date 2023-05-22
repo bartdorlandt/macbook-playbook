@@ -114,7 +114,7 @@
     - name: Import task - dynv6
       ansible.builtin.import_tasks: tasks/dynv6.yml
       tags: dynv6
-      when: dynv6_token is defined and dynv6_name is defined
+      when: ddns.dynv6_token is defined and ddns.dynv6_name is defined
     - name: Import task - symlinks
       ansible.builtin.import_tasks: tasks/symlinks.yml
       tags: symlinks
