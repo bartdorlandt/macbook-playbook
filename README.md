@@ -27,7 +27,7 @@ The playbook contained in this repo delegates some functionality to [`geerlinggu
     vi .env.yml
 
     # export path so ansible binaries are going to be on path. (use the correct version, `python -V`)
-    export PATH=~/Library/Python/3.8/bin:$PATH
+    export PATH=~/Library/Python/3.9/bin:$PATH
 
     # Install dependencies for MAC
     ./run install

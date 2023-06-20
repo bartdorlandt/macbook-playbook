@@ -15,7 +15,7 @@
     - name: Git setup
       ansible.builtin.import_tasks: tasks/git-setup.yml
       tags: git
-    - name: Include the hombrew role
+    - name: Include the homebrew role
       ansible.builtin.include_role:
         name: geerlingguy.mac.homebrew
         apply:

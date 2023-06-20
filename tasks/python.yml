@@ -8,7 +8,7 @@
 - name: Install Python interpreters
   ansible.builtin.command: "{{ ansible_env.HOME }}/.pyenv/bin/pyenv install {{ item }}"
   args:
-    creates: "~/.pyenv/versions/{{ item }}/bin/python"
+    creates: "{{ ansible_env.HOME }}/.pyenv/versions/{{ item }}/bin/python"
   loop: "{{ pyenv_python_versions }}"
 
 - name: Get current global version
