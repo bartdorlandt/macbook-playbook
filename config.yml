@@ -164,7 +164,6 @@ homebrew_installed_packages:
 
 homebrew_taps:
   - homebrew/cask
-  - homebrew/cask-drivers
   - homebrew/cask-fonts
   - homebrew/core
   - martintopholm/xping
@@ -193,12 +192,10 @@ homebrew_cask_apps:
   - slack
   - sublime-text
   - telegram
-  # - virtualbox
   - visual-studio-code
   - whatsapp
   - wireshark
   - yubico-yubikey-manager
-  - zoom
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:

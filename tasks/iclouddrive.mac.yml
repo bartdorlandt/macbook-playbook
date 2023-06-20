@@ -4,4 +4,5 @@
     dest: "~/iCloudDrive"
     src: "~/Library/Mobile Documents/com~apple~CloudDocs/"
     state: link
+    force: true
   become: false
