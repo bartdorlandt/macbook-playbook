@@ -27,7 +27,7 @@ The playbook contained in this repo delegates some functionality to [`geerlinggu
     vi .env.yml
 
     # export path so ansible binaries are going to be on path. (use the correct version, `python -V`)
-    export PATH=~/Library/Python/3.9/bin:$PATH
+    export PATH=~/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH
 
     # Install dependencies for MAC
     ./run install
@@ -67,7 +67,6 @@ using playbook steps:
 - **Notification Centre**: Set the order of items and allow permission
 - **VScode**: Install VScode [MAC](https://code.visualstudio.com/docs?dv=osx) and sync with github
 - **Sublime Text**: Install "Sync settings" package and sync via github gist
-- **VirtualBox**: System Preferences → Security & Privacy → General, allow the kernel extension
 - **Google Chrome**: Login and sync
 - **App Store Login Items**: Start App Store menubar apps and set them to start
   at login (AppCleaner and OneDrive)
@@ -78,6 +77,7 @@ using playbook steps:
     - Mission Control: F11
     - Switch Desktop 1: ctrl+1
     - Switch Desktop 2: ctrl+2
+    - Switch Desktop 3: ctrl+3
     - Disable all
   - Services: 
     - Files and Folders:
@@ -91,7 +91,7 @@ using playbook steps:
         - Open man Page in Terminal
         - Search man Page Index in Terminal
 - **Dock & Menu Bar**:
-  - Automatically hiden and show the dock: on
+  - Automatically hide and show the dock: on
   - Show recent applications in Dock: off
 - **Services**:
   - Text > Convert text to Simplified Chinese: off

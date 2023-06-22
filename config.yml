@@ -57,7 +57,7 @@ pip_packages:
 #  - {repo: $url, path: ~/git/<path>}
 
 git_init_default_branch: master
-git_pull_rebase: false
+git_pull_rebase: true
 
 # ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting tmux poetry"
 ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting"
@@ -161,11 +161,11 @@ homebrew_installed_packages:
   - whois
   - xping
   - yq
+  - zoom
+
+homebrew_not_install_packages: []
 
 homebrew_taps:
-  - homebrew/cask
-  - homebrew/cask-fonts
-  - homebrew/core
   - martintopholm/xping
 
 homebrew_cask_accept_external_apps: true

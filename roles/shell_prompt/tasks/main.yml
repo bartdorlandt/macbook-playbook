@@ -1,24 +1,11 @@
 ---
-- name: Ensure Oh My ZSH repo exists # noqa latest[git]
-  ansible.builtin.git:
-    repo: "https://github.com/ohmyzsh/ohmyzsh.git"
-    dest: ~/.oh-my-zsh
-    depth: 1
-    update: false
-
-- name: Git pull zsh-autosuggestions # noqa latest[git]
-  ansible.builtin.git:
-    repo: https://github.com/zsh-users/zsh-autosuggestions.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-    depth: 1
-    update: true
-
-- name: Git pull zsh-syntax-highlighting # noqa latest[git]
-  ansible.builtin.git:
-    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-    depth: 1
-    update: true
+- name: Oh-my-ZSH-role
+  ansible.builtin.include_role:
+    name: bartdorlandt.ohmyzsh
+    apply:
+      tags:
+        - ohmyzsh
+  tags: ohmyzsh
 
 - name: Create the .zshrc_local
   when: ohmyzsh_plugins is defined

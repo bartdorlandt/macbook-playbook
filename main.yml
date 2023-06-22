@@ -10,6 +10,9 @@
     - name: Include .env.yml variables
       ansible.builtin.include_vars: .env.yml
       tags: always
+    - name: update homebrew_installed_packages variable
+      ansible.builtin.set_fact:
+        homebrew_installed_packages: "{{ homebrew_installed_packages | difference(homebrew_not_install_packages) }} "
 
   tasks:
     - name: Git setup

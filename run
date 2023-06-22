@@ -68,7 +68,7 @@ function provision {
 
 function step {
   echo "Run the ansible-playbook with steps"
-  playbook --step
+  playbook --step "${@}"
 }
 
 function playbook {
@@ -95,18 +95,25 @@ function pip:upgrade {
 function pip:install_ansible {
   echo "Install ansible"
   pip:upgrade
-	pip3 install ansible --user
+	pip3 install ansible --user "${@}"
 }
 
 function ansible:requirements {
   echo "Install ansible requirements"
-	ansible-galaxy install -r requirements.yml "${FORCE_FLAG}"
+	ansible-galaxy install -r requirements.yml "${@}"
+}
+
+function ansible:requirements:force {
+  echo "Force Install ansible requirements"
+	ansible:requirements --force "${@}"
 }
 
 function clean {
   echo "Clean up"
+	rm -rf ./roles/geerlingguy.*
+	rm -rf ./roles/bartdorlandt.*
+	rm -rf ./roles/monolithprojects.homebrew
 	rm -rf ./roles/elliotweiser.osx-command-line-tools
-	rm -rf ./roles/geerlingguy.dotfiles
 }
 
 function help {

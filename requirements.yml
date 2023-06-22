@@ -3,6 +3,7 @@ roles:
   - name: geerlingguy.dotfiles
   - name: geerlingguy.docker
   - name: bartdorlandt.fzf
+  - name: bartdorlandt.ohmyzsh
   - name: elliotweiser.osx-command-line-tools
 
 collections:

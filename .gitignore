@@ -1,9 +1,8 @@
 .DS_Store
 *.retry
-/roles/bartdorlandt.fzf/
+/roles/bartdorlandt.*/
+/roles/geerlingguy.*/
 /roles/elliotweiser.osx-command-line-tools/
-/roles/geerlingguy.docker/
-/roles/geerlingguy.dotfiles/
 /roles/monolithprojects.homebrew/
 .env.yml
 test.yml
