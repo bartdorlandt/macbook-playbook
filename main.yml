@@ -3,6 +3,9 @@
   hosts: all
   connection: local
 
+  environment:
+    PATH: /opt/homebrew/bin:/opt/homebrew/sbin:{{ ansible_env.HOME }}/.pyenv/shims:{{ ansible_env.PATH }}
+
   pre_tasks:
     - name: Include config.yml variables
       ansible.builtin.include_vars: config.yml
@@ -10,9 +13,10 @@
     - name: Include .env.yml variables
       ansible.builtin.include_vars: .env.yml
       tags: always
-    - name: update homebrew_installed_packages variable
+    - name: update homebrew packages/cask variable
       ansible.builtin.set_fact:
         homebrew_installed_packages: "{{ homebrew_installed_packages | difference(homebrew_not_install_packages) }} "
+        homebrew_cask_apps: "{{ homebrew_cask_apps | difference(homebrew_not_install_cask_apps) }} "
 
   tasks:
     - name: Git setup

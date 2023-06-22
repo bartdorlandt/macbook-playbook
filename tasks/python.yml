@@ -1,18 +1,12 @@
 ---
-- name: Install pyenv # noqa command-instead-of-module
-  ansible.builtin.shell: curl https://pyenv.run | bash
-  args:
-    creates: "{{ ansible_env.HOME }}/.pyenv"
-  tags: pyenv
-
 - name: Install Python interpreters
-  ansible.builtin.command: "{{ ansible_env.HOME }}/.pyenv/bin/pyenv install {{ item }}"
+  ansible.builtin.command: "pyenv install {{ item }}"
   args:
     creates: "{{ ansible_env.HOME }}/.pyenv/versions/{{ item }}/bin/python"
   loop: "{{ pyenv_python_versions }}"
 
 - name: Get current global version
-  ansible.builtin.command: "{{ ansible_env.HOME }}/.pyenv/bin/pyenv global"
+  ansible.builtin.command: "pyenv global"
   register: pyenv_global_version
   changed_when: false
 
@@ -21,7 +15,7 @@
     pyenv_global_active: "{{ pyenv_global_version.stdout_lines | join(' ') | trim() }}"
 
 - name: Set pyenv global version to {{ pyenv_global }}
-  ansible.builtin.shell: "{{ ansible_env.HOME }}/.pyenv/bin/pyenv global {{ pyenv_global }} && {{ ansible_env.HOME }}/.pyenv/bin/pyenv rehash"
+  ansible.builtin.shell: "pyenv global {{ pyenv_global }} && pyenv rehash"
   when: "pyenv_global is defined and pyenv_global_active != pyenv_global"
 
 - name: Install global Pip packages.

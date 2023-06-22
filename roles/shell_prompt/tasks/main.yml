@@ -7,23 +7,6 @@
         - ohmyzsh
   tags: ohmyzsh
 
-- name: Create the .zshrc_local
-  when: ohmyzsh_plugins is defined
-  block:
-    - name: Ensure the .zshrc_local file exists
-      ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/.zshrc_local"
-        state: touch
-        mode: 0600
-        modification_time: preserve
-        access_time: preserve
-
-    - name: Fill the .zshrc_local
-      ansible.builtin.blockinfile:
-        path: "{{ ansible_env.HOME }}/.zshrc_local"
-        block: |
-          plugins=({{ ohmyzsh_plugins }})
-
 # starship
 - name: Create the starship.toml
 #  when: ohmyzsh_plugins is defined
