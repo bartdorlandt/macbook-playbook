@@ -1,0 +1,19 @@
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# vscode
+.vscode/*
+!.vscode/settings.json
+
+# pycharm
+.idea/
+
+# Python
+*.pyc
+venv/
+.venv/
+.tox
+__pycache__/
+.env
+.mypy_cache/

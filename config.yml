@@ -159,6 +159,7 @@ homebrew_installed_packages:
   - yq
 
 homebrew_not_install_packages: []
+homebrew_extra_install_packages: []
 
 homebrew_taps:
   - martintopholm/xping
@@ -194,6 +195,7 @@ homebrew_cask_apps:
   - zoom
 
 homebrew_not_install_cask_apps: []
+homebrew_extra_install_cask_apps: []
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:

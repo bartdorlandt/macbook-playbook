@@ -12,3 +12,19 @@
     state: directory
     mode: "750"
   loop: "{{ git_dirs }}"
+
+- name: Make sure .config/git directorie exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/git"
+    state: directory
+    mode: "750"
+
+- name: Link global git ignore file
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/tasks/files/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/git/{{ item }}"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ user_group }}"
+    state: link
+  loop:
+    - gitignore

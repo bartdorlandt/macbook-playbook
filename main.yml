@@ -13,10 +13,14 @@
     - name: Include .env.yml variables
       ansible.builtin.include_vars: .env.yml
       tags: always
-    - name: update homebrew packages/cask variable
+    - name: Remove unwanted homebrew packages/cask from variable
       ansible.builtin.set_fact:
         homebrew_installed_packages: "{{ homebrew_installed_packages | difference(homebrew_not_install_packages) }} "
         homebrew_cask_apps: "{{ homebrew_cask_apps | difference(homebrew_not_install_cask_apps) }} "
+    - name: Add extra homebrew packages/cask to variable
+      ansible.builtin.set_fact:
+        homebrew_installed_packages: "{{ homebrew_installed_packages | difference(homebrew_extra_install_packages) }} "
+        homebrew_cask_apps: "{{ homebrew_cask_apps | difference(homebrew_extra_install_cask_apps) }} "
 
   tasks:
     - name: Git setup
