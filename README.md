@@ -9,6 +9,11 @@ The playbook contained in this repo delegates some functionality to [`geerlinggu
 
 - [`geerlingguy/mac-dev-playbook`](https://github.com/geerlingguy/mac-dev-playbook) (the actual playbook used to provision)
 
+## What you get
+By default, it will install an environment that is suited for my personal needs. Including but not limited to the tools and programs I use along with several configuration setups and dotfiles.
+
+Along with that it will set most of the settings, including the dock layout.
+
 ## Installation
 
     # Pre tasks
