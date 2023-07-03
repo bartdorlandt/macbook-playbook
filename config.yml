@@ -183,6 +183,7 @@ homebrew_cask_apps:
   - logi-options-plus
   - notion
   - rectangle
+  - postman
   - pycharm-ce
   - signal
   - slack
