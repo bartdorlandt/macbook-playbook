@@ -148,7 +148,6 @@ homebrew_installed_packages:
   - pwgen
   - ripgrep
   - starship
-  - tailscale
   - telnet
   - tmate
   - tmux
@@ -188,6 +187,7 @@ homebrew_cask_apps:
   - signal
   - slack
   - sublime-text
+  - tailscale
   - telegram
   - visual-studio-code
   - whatsapp
