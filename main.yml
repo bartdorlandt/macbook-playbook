@@ -105,12 +105,14 @@
       tags: shell_prompt
     - name: Poetry
       ansible.builtin.include_role:
-        name: poetry
+        name: bartdorlandt.poetry
         apply:
           tags:
             - poetry
       vars:
         poetry_ohmyzsh_plugin: true
+        virtualenvs_inproject: true
+        virtualenvs_prefer_active_python: true
       tags: poetry
     - name: Fzf
       ansible.builtin.include_role:
