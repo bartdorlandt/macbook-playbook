@@ -111,7 +111,7 @@
             - poetry
       vars:
         poetry_ohmyzsh_plugin: true
-        virtualenvs_inproject: true
+        virtualenvs_in_project: true
         virtualenvs_prefer_active_python: true
       tags: poetry
     - name: Fzf
