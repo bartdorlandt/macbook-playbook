@@ -18,6 +18,31 @@
   ansible.builtin.shell: "pyenv global {{ pyenv_global }} && pyenv rehash"
   when: "pyenv_global is defined and pyenv_global_active != pyenv_global"
 
+- name: Add pyenv to profile
+  vars:
+    profile_files:
+      - .zprofile
+      - .profile
+  block:
+    - name: Ensure the profile files exists for pyenv
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: touch
+        mode: 0600
+        modification_time: preserve
+        access_time: preserve
+      loop: "{{ profile_files }}"
+
+    - name: Fill the profile files for pyenv
+      ansible.builtin.blockinfile:
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - pyenv settings"
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        block: |
+          export PYENV_ROOT="$HOME/.pyenv"
+          export PATH="$PYENV_ROOT/bin:$PATH"
+          eval "$(pyenv init --path)"
+      loop: "{{ profile_files }}"
+
 - name: Install global Pip packages.
   ansible.builtin.pip:
     name: "{{ item.name | default(item) }}"

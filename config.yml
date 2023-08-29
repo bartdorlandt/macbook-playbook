@@ -56,7 +56,7 @@ git_init_default_branch: master
 git_pull_rebase: true
 
 # ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting tmux poetry"
-ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting"
+ohmyzsh_plugins: "git macos zsh-autosuggestions zsh-syntax-highlighting"
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
