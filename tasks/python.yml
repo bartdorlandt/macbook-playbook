@@ -22,7 +22,6 @@
   vars:
     profile_files:
       - .zprofile
-      - .profile
   block:
     - name: Ensure the profile files exists for pyenv
       ansible.builtin.file:
