@@ -27,8 +27,8 @@ dotfiles_files:
 
 # Pyenv config
 # Desired Python versions
-pyenv_python310_version: "3.10.11"
-pyenv_python311_version: "3.11.3"
+pyenv_python310_version: "3.10"
+pyenv_python311_version: "3.11"
 
 # Python versions to install
 pyenv_python_versions:
@@ -36,7 +36,7 @@ pyenv_python_versions:
   - "{{ pyenv_python311_version }}"
 
 # Set global pyenv version
-pyenv_global: "{{ pyenv_python310_version }}"
+pyenv_global: "{{ pyenv_python311_version }}"
 pip_executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip3"
 
 pip_packages:
