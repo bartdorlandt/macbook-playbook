@@ -28,13 +28,17 @@ dotfiles_files:
 
 # Pyenv config
 # Desired Python versions
+pyenv_python39_version: "3.9"
 pyenv_python310_version: "3.10"
 pyenv_python311_version: "3.11"
+pyenv_python312_version: "3.12"
 
 # Python versions to install
 pyenv_python_versions:
+  - "{{ pyenv_python39_version }}"
   - "{{ pyenv_python310_version }}"
   - "{{ pyenv_python311_version }}"
+  - "{{ pyenv_python312_version }}"
 
 # Set global pyenv version
 pyenv_global: "{{ pyenv_python311_version }}"
@@ -193,6 +197,7 @@ homebrew_cask_apps:
   - signal
   - slack
   - sublime-text
+  - synology-drive
   - tailscale
   - telegram
   - visual-studio-code
