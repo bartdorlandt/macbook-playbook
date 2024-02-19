@@ -29,10 +29,10 @@ dotfiles_files:
 
 # Pyenv config
 # Desired Python versions
-pyenv_python39_version: "3.9"
-pyenv_python310_version: "3.10"
-pyenv_python311_version: "3.11"
-pyenv_python312_version: "3.12"
+pyenv_python39_version: "3.9.18"
+pyenv_python310_version: "3.10.13"
+pyenv_python311_version: "3.11.8"
+pyenv_python312_version: "3.12.2"
 
 # Python versions to install
 pyenv_python_versions:
@@ -75,7 +75,6 @@ dockitems_remove:
   - Launchpad
   - Mail
   - Maps
-  - Messages
   - Music
   - News
   - Numbers
@@ -122,15 +121,18 @@ dockitems_persist:
   - name: "Signal"
     path: "/Applications/Signal.app/"
     pos: 12
-  - name: "Telegram"
-    path: "/Applications/Telegram.app/"
+  - name: "Beeper"
+    path: "/Applications/Beeper.app/"
     pos: 13
+  - name: "Messages"
+    path: "/System/Applications/Messages.app"
+    pos: 14
   - name: "System Settings"
     path: "/System/Applications/System Settings.app/"
-    pos: 14
+    pos: 15
   - name: "Bitwarden"
     path: "/Applications/Bitwarden.app/"
-    pos: 15
+    pos: 16
 
 homebrew_installed_packages:
   - bat
@@ -138,7 +140,6 @@ homebrew_installed_packages:
   - docker
   - dockutil
   - fd
-  - fig
   - fzf
   - gh
   - git
@@ -174,7 +175,6 @@ homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - authy
-  - bitwarden
   - clipy
   - devtoys
   - docker
@@ -202,7 +202,6 @@ homebrew_cask_apps:
   - tailscale
   - telegram
   - visual-studio-code
-  - whatsapp
   - wireshark
   - yubico-yubikey-manager
   - zoom
@@ -213,6 +212,9 @@ homebrew_extra_install_cask_apps: []
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
   - { id: 409203825, name: "Numbers" }
+  - { id: 1352778147, name: "Bitwarden" }
+  - { id: 1475387142, name: "Tailscale" }
+
 # mas_uninstalled_apps:
 #   - { id: 408981434, name: "iMovie" }
 #   - { id: 682658836, name: "GarageBand" }
