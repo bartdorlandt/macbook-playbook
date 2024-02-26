@@ -183,10 +183,12 @@ homebrew_cask_apps:
   - elgato-camera-hub
   - elgato-stream-deck
   - elgato-control-center
+  - espanso
   - firefox
   - github
   - google-chrome
   - google-drive
+  - hiddenbar
   - iterm2
   - karabiner-elements
   - keepassx

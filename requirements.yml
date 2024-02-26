@@ -2,6 +2,7 @@
 roles:
   - name: geerlingguy.dotfiles
   - name: geerlingguy.docker
+  - name: bartdorlandt.espanso
   - name: bartdorlandt.fzf
   - name: bartdorlandt.ohmyzsh
   - name: bartdorlandt.poetry

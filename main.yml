@@ -103,6 +103,13 @@
           tags:
             - shell_prompt
       tags: shell_prompt
+    - name: Espanso
+      ansible.builtin.include_role:
+        name: bartdorlandt.espanso
+        apply:
+          tags:
+            - espanso
+      tags: espanso
     - name: Poetry
       ansible.builtin.include_role:
         name: bartdorlandt.poetry
