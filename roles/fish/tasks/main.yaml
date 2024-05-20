@@ -1,0 +1,16 @@
+---
+- name: Create the fish directory
+  ansible.builtin.file:
+    path: "{{ fish_home }}"
+    state: directory
+    mode: 0755
+  when: configure_dotfiles
+
+- name: Symlink fish config direcotries
+  ansible.builtin.file:
+    src: "{{ dotfiles }}/fish_user/{{ item }}"
+    dest: "{{ fish_home }}{{ item }}"
+    state: link
+    force: true
+  with_items: "{{ fish_links }}"
+  when: configure_dotfiles

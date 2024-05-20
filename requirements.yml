@@ -4,7 +4,7 @@ roles:
   - name: geerlingguy.docker
   - name: bartdorlandt.espanso
   - name: bartdorlandt.fzf
-  - name: bartdorlandt.ohmyzsh
+  # - name: bartdorlandt.ohmyzsh
   - name: bartdorlandt.poetry
   - name: elliotweiser.osx-command-line-tools
 

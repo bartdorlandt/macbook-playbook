@@ -1,0 +1,9 @@
+---
+fish_home: "{{ ansible_env.HOME }}/.config/fish/"
+dotfiles: "{{ ansible_env.HOME }}/git/dotfiles"
+
+fish_links:
+  - completions
+  - conf.d
+  - config.fish
+  - functions

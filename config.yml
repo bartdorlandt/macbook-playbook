@@ -16,12 +16,12 @@ dotfiles_repo_local_destination: ~/git/dotfiles
 dotfiles_repo_version: master
 dotfiles_files:
   - .screenrc
-  - .shell_aliases
+  # - .shell_aliases
   - .tmux.conf
   - .vimrc
   - .vimrc.bundles
-  - .zshrc
-  - .zprofile
+  # - .zshrc
+  # - .zprofile
   - .pythonstartup
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
@@ -62,7 +62,7 @@ git_init_default_branch: master
 git_pull_rebase: true
 
 # ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting tmux poetry"
-ohmyzsh_plugins: "git macos zsh-autosuggestions zsh-syntax-highlighting"
+# ohmyzsh_plugins: "git macos zsh-autosuggestions zsh-syntax-highlighting"
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
@@ -140,6 +140,7 @@ homebrew_installed_packages:
   - docker
   - dockutil
   - fd
+  - fish
   - fzf
   - gh
   - git

@@ -117,7 +117,7 @@
           tags:
             - poetry
       vars:
-        poetry_ohmyzsh_plugin: true
+        poetry_ohmyzsh_plugin: false
         virtualenvs_in_project: true
         virtualenvs_prefer_active_python: true
       tags: poetry
@@ -138,3 +138,10 @@
     - name: Import task - symlinks
       ansible.builtin.import_tasks: tasks/symlinks.yml
       tags: symlinks
+    - name: Include the fish role
+      ansible.builtin.include_role:
+        name: fish
+        apply:
+          tags:
+            - fish
+      tags: fish
