@@ -1,6 +1,7 @@
 ---
 fish_home: "{{ ansible_env.HOME }}/.config/fish/"
 dotfiles: "{{ ansible_env.HOME }}/git/dotfiles"
+fish_executable: /opt/homebrew/bin/fish
 
 fish_links:
   - completions
