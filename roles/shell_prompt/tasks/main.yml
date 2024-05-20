@@ -1,15 +1,5 @@
----
-- name: Oh-my-ZSH-role
-  ansible.builtin.include_role:
-    name: bartdorlandt.ohmyzsh
-    apply:
-      tags:
-        - ohmyzsh
-  tags: ohmyzsh
-
 # starship
 - name: Create the starship.toml
-#  when: ohmyzsh_plugins is defined
   block:
     - name: Ensure the ~/.config/starship.toml file exists
       ansible.builtin.file:

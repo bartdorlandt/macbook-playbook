@@ -1,0 +1,40 @@
+---
+- name: Get stats of fish executable
+  ansible.builtin.stat:
+    path: "{{ fish_executable}}"
+  register: fish_exec
+
+- name: "Ensure /etc/shells contains 'fish executable'"
+  lineinfile:
+    name: /etc/shells
+    line: "{{ fish_executable}}"
+    state: present
+  when: fish_exec.stat.exists
+  become: true
+
+- name: Set login shell of user {{ ansible_env.USER }} to fish
+  ansible.builtin.command: chsh -s {{ fish_executable }}
+  become: true
+  changed_when: false
+  when: fish_exec.stat.exists
+
+- name: Create the fish directory
+  ansible.builtin.file:
+    path: "{{ fish_home }}"
+    state: directory
+    mode: 0755
+  when: configure_dotfiles and fish_exec.stat.exists
+
+- name: Symlink fish config direcotries
+  ansible.builtin.file:
+    src: "{{ dotfiles }}/fish_user/{{ item }}"
+    dest: "{{ fish_home }}{{ item }}"
+    state: link
+    force: true
+  with_items: "{{ fish_links }}"
+  when: configure_dotfiles and fish_exec.stat.exists
+
+- name: Exectute fish function to add the necessary paths
+  ansible.builtin.command: "{{ fish_executable }} -c 'fish_add_own_paths'"
+  when: configure_dotfiles and fish_exec.stat.exists
+  changed_when: false
