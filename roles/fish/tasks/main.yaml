@@ -12,12 +12,6 @@
   when: fish_exec.stat.exists
   become: true
 
-- name: Set login shell of user {{ ansible_env.USER }} to fish
-  ansible.builtin.command: chsh -s {{ fish_executable }}
-  become: true
-  changed_when: false
-  when: fish_exec.stat.exists
-
 - name: Create the fish directory
   ansible.builtin.file:
     path: "{{ fish_home }}"
@@ -34,7 +28,8 @@
   with_items: "{{ fish_links }}"
   when: configure_dotfiles and fish_exec.stat.exists
 
-- name: Exectute fish function to add the necessary paths
-  ansible.builtin.command: "{{ fish_executable }} -c 'fish_add_own_paths'"
-  when: configure_dotfiles and fish_exec.stat.exists
-  changed_when: false
+- name: Ensure default shell is fish for "{{ ansible_env.USER }}"
+  ansible.builtin.user:
+    name: "{{ ansible_env.USER }}"
+    shell: "{{ fish_executable }}"
+  when: fish_exec.stat.exists

@@ -84,7 +84,7 @@ using playbook steps:
     - Switch Desktop 2: ctrl+2
     - Switch Desktop 3: ctrl+3
     - Disable all
-  - Services: 
+  - Services:
     - Files and Folders:
       - remove "Send File to Bluetooth Device" shortcut (needed in iTerm2)
     - Disable:
@@ -105,3 +105,6 @@ using playbook steps:
   - Disable loading Music in certain cases:
 
         launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
+
+- **Fish**:
+  - Run the function `fish_add_own_paths`
