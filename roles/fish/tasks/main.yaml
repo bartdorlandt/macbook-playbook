@@ -33,3 +33,30 @@
     name: "{{ ansible_env.USER }}"
     shell: "{{ fish_executable }}"
   when: fish_exec.stat.exists
+
+# OMF
+- name: Check if oh-my-fish is installed
+  stat:
+    path: "{{ omf_path }}"
+  register: omf
+
+- name: Clone oh-my-fish repo
+  git:
+    repo: 'https://github.com/oh-my-fish/oh-my-fish'
+    dest: "{{ omf_path }}"
+  when: not omf.stat.exists
+
+- name: Install oh-my-fish
+  ansible.builtin.shell:
+    cmd: "{{ omf_path }}/bin/install -y --offline --noninteractive"
+    executable: "{{ fish_executable }}"
+    creates: "{{ fish_home }}/conf.d/omf.fish"
+  when: not omf.stat.exists
+
+- name: Install OMF plugins
+  ansible.builtin.shell:
+    cmd: "omf install {{ item }}"
+    executable: "{{ fish_executable }}"
+    creates: "{{ omf_path }}/pkg/{{ item }}"
+  with_items: "{{ omf_plugins }}"
+  when: not omf.stat.exists

@@ -8,3 +8,7 @@ fish_links:
   - conf.d
   - config.fish
   - functions
+
+omf_path: "{{ ansible_env.USER }}/.local/share/omf"
+omf_plugins:
+  - bass
