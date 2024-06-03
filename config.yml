@@ -146,6 +146,7 @@ homebrew_installed_packages:
   - git
   - gnupg
   - go
+  - gping
   - htop
   - httpie
   - iproute2mac
