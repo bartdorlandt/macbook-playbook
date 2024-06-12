@@ -21,4 +21,4 @@
     group: "{{ user_group }}"
     state: link
   loop:
-    - iterm2.json
+    - Profiles.json

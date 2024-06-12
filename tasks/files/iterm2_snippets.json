@@ -1,0 +1,150 @@
+[
+    {
+        "guid": "7DEF426A-8CBB-40D9-A522-8E8EAE94483B",
+        "value": "",
+        "title": "-------------   docker show ---------",
+        "tags": [],
+        "escaping": 2,
+        "version": 2
+    },
+    {
+        "guid": "92F4E75C-DAF0-421C-B2B9-8F1F913DDEE1",
+        "value": "",
+        "title": "-------------   docker logs ---------",
+        "tags": [],
+        "escaping": 2,
+        "version": 2
+    },
+    {
+        "guid": "7BA53495-B563-459C-AB5D-505E80738226",
+        "value": "sudo docker logs -f ",
+        "title": "sudo docker logs -f",
+        "version": 1
+    },
+    {
+        "guid": "2D56314C-F415-4ADA-92EA-316FE41801CF",
+        "value": "sudo docker logs -fn 1000 ",
+        "title": "docker logs -fn 1000",
+        "version": 1
+    },
+    {
+        "guid": "4D50678C-3002-4958-8A97-8BFC3D2CDA31",
+        "value": "sudo docker logs -fn 1000 minime-container-mx\n",
+        "title": "minime-mx logs",
+        "version": 1
+    },
+    {
+        "guid": "A5017722-1923-471C-9EE4-D245081D25B1",
+        "value": "sudo docker logs -fn 1000 minime-container-mx2\n",
+        "title": "minime mx2 logs",
+        "version": 1
+    },
+    {
+        "guid": "9F1D5BB4-56F2-419E-A566-9F9607E37AF4",
+        "value": "sudo docker logs -fn 1000 minime-container-qfx1\n",
+        "title": "minime qfx1 logs",
+        "version": 1
+    },
+    {
+        "guid": "A37A0A56-48F0-4C6E-A50A-9525D438EAED",
+        "value": "sudo docker logs -fn 1000 minime-container-qfx2\n",
+        "title": "minime qfx2 logs",
+        "version": 1
+    },
+    {
+        "guid": "C088E620-563E-4631-9C92-838B262E6B03",
+        "value": "sudo docker logs -fn 1000 network-device-manager-container\n",
+        "title": "ndm logs",
+        "version": 1
+    },
+    {
+        "guid": "CFE94309-99BA-4F10-91CC-ACAC7F633367",
+        "value": "sudo docker logs -fn 1000 r2d2_web_prd\n\n",
+        "title": "r2d2 prd logs",
+        "version": 1
+    },
+    {
+        "guid": "3009E446-339A-4C81-8DAD-2C93839FF815",
+        "value": "sudo docker logs -fn 1000 r2d2_web_stg\n\n",
+        "title": "r2d2 stg logs",
+        "version": 1
+    },
+    {
+        "guid": "47ED70D5-2BF8-45DB-BD56-BCFE0479E805",
+        "value": "sudo docker logs -fn 1000 bmp-collector-container\n",
+        "title": "bmp-collector logs",
+        "version": 1
+    },
+    {
+        "guid": "F22B2533-8F2C-4563-A15B-B6F93C0F9FDB",
+        "value": "",
+        "title": "-------------   docker exec ---------",
+        "version": 1
+    },
+    {
+        "guid": "02AB3769-2103-4382-89D0-339A4799F31E",
+        "value": "sudo docker exec -it  bash",
+        "title": "sudo docker exec",
+        "version": 1
+    },
+    {
+        "guid": "46D58579-A160-4EA1-9979-5A66EDC39220",
+        "value": "sudo docker exec -it minime-container-mx bash\n",
+        "title": "Exec minime MX",
+        "version": 1
+    },
+    {
+        "guid": "B092D350-2124-4E2A-85F7-4FE8FCC68904",
+        "value": "sudo docker exec -it minime-container-mx2 bash",
+        "title": "Exec minime MX2",
+        "version": 1
+    },
+    {
+        "guid": "563D0A23-1E63-4E86-9189-8EDDF60663D3",
+        "value": "sudo docker exec -it minime-container-qfx1 bash\n",
+        "title": "Exec minime qfx1",
+        "version": 1
+    },
+    {
+        "guid": "22995194-B8E0-4185-9B33-ABFB19F4697F",
+        "value": "sudo docker exec -it minime-container-qfx2 bash\n",
+        "title": "Exec minime qfx2",
+        "version": 1
+    },
+    {
+        "guid": "99BCB780-231A-41E6-A9E3-785D26283020",
+        "value": "sudo docker exec -it network-device-manager-container bash\n",
+        "title": "Exec ndm",
+        "version": 1
+    },
+    {
+        "guid": "FEAE4586-06CE-4C57-8C3D-07023091171F",
+        "value": "sudo docker exec -it r2d2_web_prd bash\n",
+        "title": "Exec r2d2 prd",
+        "version": 1
+    },
+    {
+        "guid": "3A4FE830-2556-49C1-AB9A-E02E3AE71658",
+        "value": "",
+        "title": "------------ other -----------",
+        "version": 1
+    },
+    {
+        "guid": "9482EC74-3A5F-4143-81A9-23071D95D642",
+        "value": "sudo docker inspect ",
+        "title": "sudo docker inspect",
+        "version": 1
+    },
+    {
+        "guid": "A74B1AE5-461B-49A4-BFC3-F87407A3F76C",
+        "value": "keys=$(for x in $(sudo cat \/var\/log\/salt\/master | grep https:\/\/vault.imperva-services.net:8200\/v1\/secret\/roles\/netcommon\/bgp\/ | grep requests.exceptions.HTTPError | sort | uniq | cut -d'\/' -f9) ; do echo \"https:\/\/sod.incap-infra.net:8200\/ui\/vault\/secrets\/secret\/show\/roles\/netcommon\/bgp\/$x\"; done)\necho -e \"Move BGP from old to new vault:\\\\n\\\\\n$(echo $keys | tr \" \" \"\\\\n\")\\\\n\\\\\nCopy each secret as json\\\\n\\\\n\\\\\nOpen page: https:\/\/vault.imperva-services.net:8200\/ui\/vault\/secrets\/secret\/list\/roles\/netcommon\/bgp\/namespace=cloudwaf\\\\n\\\\n\\\\\nClick add secret\\\\n\\\\\n    provide the IP address\\\\n\\\\\n    Select the json button\\\\n\\\\\n    Paste the content and save\\\\n\\\\\nrepeat for each key\"\n",
+        "title": "Salt-master BGP keys missing",
+        "version": 1
+    },
+    {
+        "guid": "7DCFF9CF-86B3-485B-996E-99B2E51E14F4",
+        "value": "sudo docker logs --tail 1000 looking-glass-container",
+        "title": "looking-glass logs",
+        "version": 1
+    }
+]

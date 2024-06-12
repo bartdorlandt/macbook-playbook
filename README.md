@@ -108,3 +108,11 @@ using playbook steps:
 
 - **Fish**:
   - Run the function `fish_add_own_paths`
+
+## iTerm2
+
+Snippets need to be exported and inported manually. They are save as json file. [iterm2_snippets.json](tasks/files/iterm2_snippets.json).
+
+Changes made to the dynamic profile, needs to be exported, [Profiles.json](tasks/files/Profiles.json). On its turn, this file needs to be copied back to DynamicProfiles dir, `$HOME/Library/Application Support/iTerm2/DynamicProfiles`.
+
+    TAGS=iterm2 ./run all
