@@ -233,3 +233,7 @@ user_group: staff
 
 sublime_base_path: "~/Library/Application Support/Sublime Text"
 sublime_config_path: "Packages/User"
+
+fish_omf_plugins:
+  - bass
+  - bang-bang

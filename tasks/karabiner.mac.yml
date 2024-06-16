@@ -11,6 +11,6 @@
     dest: "~/.config/karabiner/{{ item }}"
     owner: "{{ ansible_env.USER }}"
     group: "{{ user_group }}"
-    mode: 0644
+    mode: "0644"
   loop:
     - karabiner.json

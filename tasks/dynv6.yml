@@ -11,12 +11,12 @@
 - name: Add "PATH" on top of crontab
   ansible.builtin.cron:
     name: PATH
-    env: yes
+    env: true
     job: /usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 - name: Ensure a job run every 10 minutes to update dynv6
   ansible.builtin.cron:
     name: "dynv6"
     minute: "*/10"
-    job: "token={{ ddns.dynv6_token }} $HOME/git/user_scripts_linux/dyndns/{{ dynv6_script }} {{ ddns.dynv6_name }} > 
+    job: "token={{ ddns.dynv6_token }} $HOME/git/user_scripts_linux/dyndns/{{ dynv6_script }} {{ ddns.dynv6_name }} >
     /tmp/{{ ddns.dynv6_name }}.log 2>&1"

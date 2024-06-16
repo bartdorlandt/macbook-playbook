@@ -30,6 +30,6 @@
   ansible.builtin.template:
     src: pypirc.j2
     dest: "{{ ansible_env.HOME }}/.pypirc"
-    mode: 0600
+    mode: "0600"
   when: pypi_username is defined and pypi_password is defined
   tags: pypi

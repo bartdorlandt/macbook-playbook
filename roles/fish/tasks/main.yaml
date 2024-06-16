@@ -1,13 +1,13 @@
 ---
 - name: Get stats of fish executable
   ansible.builtin.stat:
-    path: "{{ fish_executable}}"
+    path: "{{ fish_executable }}"
   register: fish_exec
 
 - name: "Ensure /etc/shells contains 'fish executable'"
-  lineinfile:
+  ansible.builtin.lineinfile:
     name: /etc/shells
-    line: "{{ fish_executable}}"
+    line: "{{ fish_executable }}"
     state: present
   when: fish_exec.stat.exists
   become: true
@@ -16,12 +16,12 @@
   ansible.builtin.file:
     path: "{{ fish_home }}"
     state: directory
-    mode: 0755
+    mode: "0755"
   when: configure_dotfiles and fish_exec.stat.exists
 
 - name: Symlink fish config direcotries
   ansible.builtin.file:
-    src: "{{ dotfiles }}/fish_user/{{ item }}"
+    src: "{{ fish_dotfiles }}/fish_user/{{ item }}"
     dest: "{{ fish_home }}{{ item }}"
     state: link
     force: true
@@ -36,19 +36,19 @@
 
 # OMF
 - name: Check if oh-my-fish is installed
-  stat:
-    path: "{{ omf_path }}"
+  ansible.builtin.stat:
+    path: "{{ fish_omf_path }}"
   register: omf
 
 - name: Clone oh-my-fish repo
-  git:
+  ansible.builtin.git:
     repo: 'https://github.com/oh-my-fish/oh-my-fish'
-    dest: "{{ omf_path }}"
+    dest: "{{ fish_omf_path }}"
   when: not omf.stat.exists
 
 - name: Install oh-my-fish
   ansible.builtin.shell:
-    cmd: "{{ omf_path }}/bin/install -y --offline --noninteractive"
+    cmd: "{{ fish_omf_path }}/bin/install -y --offline --noninteractive"
     executable: "{{ fish_executable }}"
     creates: "{{ fish_home }}/conf.d/omf.fish"
   when: not omf.stat.exists
@@ -57,6 +57,6 @@
   ansible.builtin.shell:
     cmd: "omf install {{ item }}"
     executable: "{{ fish_executable }}"
-    creates: "{{ omf_path }}/pkg/{{ item }}"
-  with_items: "{{ omf_plugins }}"
+    creates: "{{ fish_omf_path }}/pkg/{{ item }}"
+  with_items: "{{ fish_omf_plugins }}"
   when: not omf.stat.exists

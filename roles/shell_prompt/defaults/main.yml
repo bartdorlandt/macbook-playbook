@@ -1,6 +1,6 @@
 ---
 # ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting"
-starship_config: |
+shell_prompt_starship_config: |
   command_timeout = 5000
   [directory]
   truncation_length = 3
