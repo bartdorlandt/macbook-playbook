@@ -52,7 +52,7 @@
                                     "key_code": "insert",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_control"
+                                            "left_control"
                                         ],
                                         "optional": [
                                             "any"
