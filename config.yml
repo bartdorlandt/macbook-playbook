@@ -208,6 +208,7 @@ homebrew_cask_apps:
   - synology-drive
   - tailscale
   - telegram
+  - uv
   - visual-studio-code
   - wireshark
   - yubico-yubikey-manager
