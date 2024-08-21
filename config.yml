@@ -168,6 +168,7 @@ homebrew_installed_packages:
   - whois
   - xping
   - yq
+  - zoxide
 
 homebrew_not_install_packages: []
 homebrew_extra_install_packages: []
