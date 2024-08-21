@@ -139,6 +139,7 @@ homebrew_installed_packages:
   - coreutils
   - docker
   - dockutil
+  - eza
   - fd
   - fish
   - fzf
@@ -150,6 +151,7 @@ homebrew_installed_packages:
   - htop
   - httpie
   - iproute2mac
+  - just
   - jq
   - mtr
   - openssh
