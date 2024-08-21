@@ -199,9 +199,9 @@ homebrew_cask_apps:
   - keepassx
   - logi-options-plus
   - notion
-  - rectangle
   - postman
   - pycharm-ce
+  - shortcat
   - signal
   - slack
   - sublime-text
