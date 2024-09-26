@@ -147,6 +147,7 @@ homebrew_installed_packages:
   - git
   - gnupg
   - go
+  - go-task
   - gping
   - htop
   - httpie
