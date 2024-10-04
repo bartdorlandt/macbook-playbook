@@ -1,0 +1,91 @@
+version: "3"
+
+# Run any command with additional parameters behind the '--'
+# task playbook -- -C
+
+tasks:
+  default:
+    silent: true
+    cmd: task --sort none --list-all
+
+  playbook:
+    desc: "Run the main playbook, with -K"
+    aliases: [all]
+    cmds:
+      - ansible-playbook main.yml -K {{.CLI_ARGS}}
+    preconditions:
+      - test -f .env
+
+  list-tags:
+    desc: "List available tags in the playbook"
+    cmds:
+      - ansible-playbook main.yml --list-tags
+
+  tags:
+    desc: "Run the playbook with provided tags: 'task TAGS=\"tag1,tag2\" tags'"
+    cmds:
+      - task: playbook
+        vars:
+          CLI_ARGS: --tags={{.TAGS}} {{.CLI_ARGS}}
+    requires:
+      vars:
+        - TAGS
+
+  step:
+    desc: "Run the playbook with --step"
+    cmds:
+      - task: playbook
+        vars:
+          CLI_ARGS: --step {{.CLI_ARGS}}
+
+  install_all:
+    desc: Install all dependencies
+    aliases: [install]
+    deps: [install_xcode, install_ansible install_repo]
+
+  install_ansible:
+    desc: Install ansible
+    deps: [pip_upgrade]
+    cmds:
+      - pip3 install ansible --user {{.CLI_ARGS}}
+
+  install_xcode:
+    set: [pipefail]
+    run: once
+    desc: Install Xcode
+    cmds:
+      - |
+        xcode-select -p 2>&1 >/dev/null || xcode-select --install
+        if [ "`xcode-select -p`" != "/Library/Developer/CommandLineTools" ]; then sudo xcode-select -switch /Library/Developer/CommandLineTools; fi
+
+  pip_upgrade:
+    desc: Install and upgrade pip
+    cmd: python3 -m pip install -U pip
+
+  install_repo:
+    desc: Install repo dependencies (ansible and git_submodules)
+    deps: [ansible_requirements_force, git_submodules]
+
+  ansible_requirements:
+    desc: Install the ansible requirements
+    cmd: ansible-galaxy install -r requirements.yml {{.CLI_ARGS}}
+
+  ansible_requirements_force:
+    desc: Force install the ansible requirements
+    cmds:
+      - task: ansible_requirements
+        vars:
+          CLI_ARGS: --force
+
+  git_submodules:
+    desc: Install the git submodules
+    cmd: git submodule update --init --recursive
+
+  clean:
+    desc: Erase the directories
+    prompt: Are you sure?
+    cmds:
+      - rm -rf ./roles/geerlingguy.*
+      - rm -rf ./roles/bartdorlandt.*
+      - rm -rf ./roles/monolithprojects.homebrew
+      - rm -rf ./roles/elliotweiser.osx-command-line-tools
