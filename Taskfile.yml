@@ -41,7 +41,7 @@ tasks:
   install_all:
     desc: Install all dependencies
     aliases: [install]
-    deps: [install_xcode, install_ansible install_repo]
+    deps: [install_xcode, install_ansible, install_repo]
 
   install_ansible:
     desc: Install ansible
