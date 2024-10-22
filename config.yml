@@ -177,6 +177,7 @@ homebrew_extra_install_packages: []
 
 homebrew_taps:
   - martintopholm/xping
+  - pouriyajamshidi/tap
 
 homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
@@ -209,6 +210,7 @@ homebrew_cask_apps:
   - sublime-text
   - synology-drive
   - tailscale
+  - tcping
   - telegram
   - visual-studio-code
   - wireshark
