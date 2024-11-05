@@ -208,7 +208,6 @@ homebrew_cask_apps:
   - signal
   - slack
   - sublime-text
-  - synology-drive
   - tailscale
   - tcping
   - telegram
