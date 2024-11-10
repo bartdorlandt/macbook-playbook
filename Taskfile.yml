@@ -14,7 +14,7 @@ tasks:
     cmds:
       - ansible-playbook main.yml -K {{.CLI_ARGS}}
     preconditions:
-      - test -f .env
+      - test -f .env.yml
 
   list-tags:
     desc: "List available tags in the playbook"
@@ -41,13 +41,25 @@ tasks:
   install_all:
     desc: Install all dependencies
     aliases: [install]
-    deps: [install_xcode, install_ansible, install_repo]
+    preconditions:
+      - sh: test -d .venv
+        msg: "Please create a virtual environment first"
+    requires:
+      vars:
+        - VIRTUAL_ENV
+    cmds:
+      - task: install_xcode
+      - task: install_ansible
+      - task: install_repo
 
   install_ansible:
-    desc: Install ansible
+    desc: Install ansible, venv should be activated!
     deps: [pip_upgrade]
     cmds:
-      - pip3 install ansible --user {{.CLI_ARGS}}
+      - pip3 install ansible {{.CLI_ARGS}}
+    requires:
+      vars:
+        - VIRTUAL_ENV
 
   install_xcode:
     set: [pipefail]

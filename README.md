@@ -14,46 +14,52 @@ By default, it will install an environment that is suited for my personal needs.
 
 Along with that it will set most of the settings, including the dock layout.
 
-## Installation
+# Installation
 
-    # Pre tasks
-    Log into Mac App Store (App Store in Spotlight)
-    From a terminal:
-        xcode-select --install
+## Pre tasks
+Log into Mac App Store (App Store in Spotlight)
+From a terminal:
 
-    # Create git repo dir
+    xcode-select --install
+
+## Create git repo dir
+
     mkdir -p ~/git/
-
-    # Clone this repository to your local drive.
     git clone --recursive https://github.com/bartdorlandt/macbook-playbook.git ~/git/macbook-playbook
+    cd ~/git/macbook-playbook
 
-    # copy and edit the .env.yml file
+    python3 -m venv .venv
+    source .venv/bin/activate[.fish]
+    pip install -U pip
+    pip install ansible
+
+## copy and edit the .env.yml file
     cp env.yml-template .env.yml
     vi .env.yml
 
-    # export path so ansible binaries are going to be on path. (use the correct version, `python -V`)
-    export PATH=~/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH
+## Install dependencies for MAC
 
-    # Install dependencies for MAC
-    ./run install
+    ansible-galaxy install -r requirements.yml
+    git submodule update --init --recursive
 
-    # Run the playbook (Some casks might need an interactive password during installation).
-    ./run provision
+## Run the playbook
+(Some casks might need an interactive password during installation).
 
+    ansible-playbook main.yml -K
 
-### Running a specific set of tagged tasks
+# Running a specific set of tagged tasks
 
 You can filter which part of the provisioning process to run by specifying a set of tags using `TAGS="<tag1>,<tag2>"` flag. The tags can be retrieved using:
 
-    ./run list-tags
+    task list-tags
 
 example:
 
-    TAGS=dotfiles,homebrew ./run all
+    task TAGS=dotfiles,homebrew all
 
 using playbook steps:
 
-    ./run step
+    task step
 
 ## Future additions
 
