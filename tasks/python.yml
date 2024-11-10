@@ -18,13 +18,12 @@
   ansible.builtin.shell: "pyenv global {{ pyenv_global }} && pyenv rehash"
   when: "pyenv_global is defined and pyenv_global_active != pyenv_global"
 
-- name: Install global Pip packages.
-  ansible.builtin.pip:
+- name: Install global Pipx packages.
+  community.general.pipx:
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
-    version: "{{ item.version | default(omit) }}"
-    executable: "{{ item.executable | default(pip_executable) }}"
-  loop: "{{ pip_packages }}"
+    executable: "{{ item.executable | default(pipx_executable) }}"
+  loop: "{{ pipx_packages }}"
 
 - name: Create pypirc file
   ansible.builtin.template:

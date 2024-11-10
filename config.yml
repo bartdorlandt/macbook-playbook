@@ -42,15 +42,14 @@ pyenv_python_versions:
   - "{{ pyenv_python312_version }}"
 
 # Set global pyenv version
-pyenv_global: "{{ pyenv_python311_version }}"
+pyenv_global: "{{ pyenv_python312_version }}"
 pip_executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip3"
+pipx_executable: "{{ ansible_env.HOME }}/.pyenv/shims/pipx"
 
-pip_packages:
+pipx_packages:
   - name: ansible
     state: latest
   - name: ansible-lint
-    state: latest
-  - name: pip
     state: latest
 
 #git_repos:
@@ -161,6 +160,7 @@ homebrew_installed_packages:
   - pwgen
   - ripgrep
   - starship
+  - pouriyajamshidi/tap/tcping
   - telnet
   - tmate
   - tmux
@@ -209,7 +209,6 @@ homebrew_cask_apps:
   - slack
   - sublime-text
   - tailscale
-  - tcping
   - telegram
   - visual-studio-code
   - wireshark
