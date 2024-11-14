@@ -46,7 +46,7 @@ tasks:
         msg: "Please create a virtual environment first"
     requires:
       vars:
-        - VIRTUAL_ENV
+        - VIRTUAL_ENV  # virtual environment should be activated
     cmds:
       - task: install_xcode
       - task: install_ansible

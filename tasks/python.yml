@@ -23,6 +23,7 @@
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
     executable: "{{ item.executable | default(pipx_executable) }}"
+    install_deps: "{{ item.include_deps | default(false) }}"
   loop: "{{ pipx_packages }}"
 
 - name: Create pypirc file

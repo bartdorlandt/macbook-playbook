@@ -44,11 +44,12 @@ pyenv_python_versions:
 # Set global pyenv version
 pyenv_global: "{{ pyenv_python312_version }}"
 pip_executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip3"
-pipx_executable: "{{ ansible_env.HOME }}/.pyenv/shims/pipx"
+pipx_executable: "./.venv/bin/pipx"
 
 pipx_packages:
   - name: ansible
     state: latest
+    install_deps: latest
   - name: ansible-lint
     state: latest
 
