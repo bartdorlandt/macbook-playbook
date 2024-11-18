@@ -33,6 +33,7 @@ pyenv_python39_version: "3.9.18"
 pyenv_python310_version: "3.10.13"
 pyenv_python311_version: "3.11.8"
 pyenv_python312_version: "3.12.2"
+pyenv_python313_version: "3.13.0"
 
 # Python versions to install
 pyenv_python_versions:
@@ -40,6 +41,7 @@ pyenv_python_versions:
   - "{{ pyenv_python310_version }}"
   - "{{ pyenv_python311_version }}"
   - "{{ pyenv_python312_version }}"
+  - "{{ pyenv_python313_version }}"
 
 # Set global pyenv version
 pyenv_global: "{{ pyenv_python312_version }}"
