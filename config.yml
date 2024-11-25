@@ -46,7 +46,6 @@ pyenv_python_versions:
 # Set global pyenv version
 pyenv_global: "{{ pyenv_python312_version }}"
 pip_executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip3"
-pipx_executable: "./.venv/bin/pipx"
 
 pipx_packages:
   - name: ansible
@@ -187,6 +186,7 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - authy
   - clipy
+  - cursor
   - devtoys
   - docker
   - drawio

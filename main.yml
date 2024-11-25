@@ -7,6 +7,16 @@
     PATH: /opt/homebrew/bin:/opt/homebrew/sbin:{{ ansible_env.HOME }}/.pyenv/shims:{{ ansible_env.PATH }}
 
   pre_tasks:
+    - name: Fail if the VIRTUAL_ENV variable is not defined
+      ansible.builtin.debug:
+        msg: "VIRTUAL_ENV: {{ lookup('ansible.builtin.env', 'VIRTUAL_ENV') }}"
+      failed_when: lookup('ansible.builtin.env', 'VIRTUAL_ENV') == ""
+    - name: Validate presence of .venv/bin/pipx
+      ansible.builtin.stat:
+        path: ".venv/bin/pipx"
+      register: venv_pipx
+      failed_when: venv_pipx.stat.exists == false
+
     - name: Include config.yml variables
       ansible.builtin.include_vars: config.yml
       tags: always

@@ -28,10 +28,12 @@ From a terminal:
     git clone --recursive https://github.com/bartdorlandt/macbook-playbook.git ~/git/macbook-playbook
     cd ~/git/macbook-playbook
 
-    python3 -m venv .venv
-    source .venv/bin/activate[.fish]
-    pip install -U pip
-    pip install ansible
+    # install uv
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+
+    uv venv
+    uv sync
+    source .venv/bin/activate
 
 ## copy and edit the .env.yml file
     cp env.yml-template .env.yml
