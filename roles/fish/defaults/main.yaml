@@ -9,5 +9,5 @@ fish_links:
   - config.fish
   - functions
 
-fish_omf_path: "{{ ansible_env.USER }}/.local/share/omf"
+fish_omf_path: "{{ ansible_env.HOME }}/.local/share/omf"
 fish_omf_plugins: []
