@@ -180,6 +180,7 @@ homebrew_extra_install_packages: []
 homebrew_taps:
   - martintopholm/xping
   - pouriyajamshidi/tap
+  - zkondor/dist
 
 homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
@@ -216,6 +217,7 @@ homebrew_cask_apps:
   - visual-studio-code
   - wireshark
   - yubico-yubikey-manager
+  - znotch
   - zoom
 
 homebrew_not_install_cask_apps: []
