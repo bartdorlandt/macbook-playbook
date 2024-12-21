@@ -200,7 +200,7 @@ homebrew_cask_apps:
   - github
   - google-chrome
   - google-drive
-  - hiddenbar
+  # - hiddenbar
   - iterm2
   - karabiner-elements
   - keepassx
