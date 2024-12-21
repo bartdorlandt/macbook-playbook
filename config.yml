@@ -208,7 +208,7 @@ homebrew_cask_apps:
   - notion
   - postman
   - pycharm-ce
-  - raycast
+  - raycast  # backup in iCould/backup
   - shortcat
   - signal
   - slack
