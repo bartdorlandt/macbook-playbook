@@ -72,7 +72,7 @@ tasks:
 
   pip_upgrade:
     desc: Install and upgrade pip
-    cmd: python3 -m pip install -U pip
+    cmd: python3 -m ensurepip --upgrade
 
   install_repo:
     desc: Install repo dependencies (ansible and git_submodules)
