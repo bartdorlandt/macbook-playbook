@@ -16,50 +16,30 @@ dotfiles_repo_local_destination: ~/git/dotfiles
 dotfiles_repo_version: master
 dotfiles_files:
   - .screenrc
-  # - .shell_aliases
+  - .shell_aliases
   - .tmux.conf
   - .vimrc
   - .vimrc.bundles
-  # - .zshrc
-  # - .zprofile
+  - .zshrc
+  - .zprofile
   - .pythonstartup
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 # post_provision_tasks: "{{ playbook_dir }}/../tasks/*.yml"
 
-# Pyenv config
-# Desired Python versions
-pyenv_python39_version: "3.9.18"
-pyenv_python310_version: "3.10.13"
-pyenv_python311_version: "3.11.8"
-pyenv_python312_version: "3.12.2"
-pyenv_python313_version: "3.13.0"
-
-# Python versions to install
-pyenv_python_versions:
-  - "{{ pyenv_python39_version }}"
-  - "{{ pyenv_python310_version }}"
-  - "{{ pyenv_python311_version }}"
-  - "{{ pyenv_python312_version }}"
-  - "{{ pyenv_python313_version }}"
-
 # Set global pyenv version
-pyenv_global: "{{ pyenv_python312_version }}"
-pip_executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip3"
+main_python_version: "3.13"
 
-pipx_packages:
-  - name: ansible
-    state: latest
-    install_deps: latest
-  - name: ansible-lint
-    state: latest
+uvtool_packages:
+  - ansible
+  - ansible-lint
 
 #git_repos:
 #  # Make sure the SSH key have been loaded to bitbucket and github
 #  # when options: MacOSX, Ubuntu, always
 #  - {repo: $url, path: ~/git/<path>}
 
-git_init_default_branch: master
+git_init_default_branch: main
 git_pull_rebase: true
 
 # ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting tmux poetry"
