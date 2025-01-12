@@ -1,30 +1,14 @@
 ---
-- name: Install Python interpreters
-  ansible.builtin.command: "pyenv install {{ item }}"
+- name: Install Python interpreter with uv
+  ansible.builtin.command: "uv python install {{ main_python_version }} --preview --default"
   args:
-    creates: "{{ ansible_env.HOME }}/.pyenv/versions/{{ item }}/bin/python"
-  loop: "{{ pyenv_python_versions }}"
+    creates: "{{ ansible_env.HOME }}/.local/bin/python{{ main_python_version }}"
 
-- name: Get current global version
-  ansible.builtin.command: "pyenv global"
-  register: pyenv_global_version
-  changed_when: false
-
-- name: Set pyenv_global_active fact
-  ansible.builtin.set_fact:
-    pyenv_global_active: "{{ pyenv_global_version.stdout_lines | join(' ') | trim() }}"
-
-- name: Set pyenv global version to {{ pyenv_global }}
-  ansible.builtin.shell: "pyenv global {{ pyenv_global }} && pyenv rehash"
-  when: "pyenv_global is defined and pyenv_global_active != pyenv_global"
-
-- name: Install global Pipx packages
-  community.general.pipx:
-    name: "{{ item.name | default(item) }}"
-    state: "{{ item.state | default('present') }}"
-    executable: "{{ item.executable | default(omit) }}"
-    install_deps: "{{ item.include_deps | default(false) }}"
-  loop: "{{ pipx_packages }}"
+- name: Install global uv tool packages
+  ansible.builtin.command: "uv tool install {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/{{ item }}"
+  loop: "{{ uvtool_packages }}"
 
 - name: Create pypirc file
   ansible.builtin.template:
