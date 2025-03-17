@@ -186,6 +186,7 @@ homebrew_cask_apps:
   - keepassx
   - logi-options-plus
   - notion
+  - notunes
   - postman
   - pycharm-ce
   - raycast  # backup in iCould/backup
