@@ -6,7 +6,7 @@ version: "3"
 tasks:
   default:
     silent: true
-    cmd: task --sort none --list-all
+    cmd: task -l --sort none
 
   playbook:
     desc: "Run the main playbook, with -K"
