@@ -165,6 +165,7 @@ homebrew_taps:
 homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  - beeper
   - clipy
   - cursor
   - devtoys
@@ -188,7 +189,7 @@ homebrew_cask_apps:
   - notunes
   - postman
   - pycharm-ce
-  - raycast  # backup in iCould/backup
+  - raycast # backup in iCould/backup
   - shortcat
   - signal
   - slack
