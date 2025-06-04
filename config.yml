@@ -116,6 +116,7 @@ dockitems_persist:
     pos: 16
 
 homebrew_installed_packages:
+  - atuin
   - bat
   - coreutils
   - docker
