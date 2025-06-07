@@ -119,7 +119,6 @@ homebrew_installed_packages:
   - atuin
   - bat
   - coreutils
-  - docker
   - dockutil
   - eza
   - fd
@@ -136,6 +135,7 @@ homebrew_installed_packages:
   - iproute2mac
   - jq
   - mtr
+  - orbstack
   - openssh
   - poetry
   - prettyping
@@ -167,10 +167,10 @@ homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - beeper
+  - bruno
   - clipy
   - cursor
   - devtoys
-  - docker
   - drawio
   - dropbox
   - elgato-camera-hub
@@ -188,7 +188,6 @@ homebrew_cask_apps:
   - logi-options-plus
   - notion
   - notunes
-  - postman
   - pycharm-ce
   - raycast # backup in iCould/backup, also replaces clipy
   - shortcat
@@ -203,7 +202,9 @@ homebrew_cask_apps:
   - znotch
   - zoom
 
-homebrew_not_install_cask_apps: []
+homebrew_not_install_cask_apps:
+  - docker
+  - postman
 homebrew_extra_install_cask_apps: []
 
 # See `geerlingguy.mas` role documentation for usage instructions.
