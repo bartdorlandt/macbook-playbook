@@ -134,7 +134,6 @@ homebrew_installed_packages:
   - htop
   - httpie
   - iproute2mac
-  - just
   - jq
   - mtr
   - openssh
@@ -155,7 +154,8 @@ homebrew_installed_packages:
   - yq
   - zoxide
 
-homebrew_not_install_packages: []
+homebrew_not_install_packages:
+  - clipy
 homebrew_extra_install_packages: []
 
 homebrew_taps:
@@ -190,7 +190,7 @@ homebrew_cask_apps:
   - notunes
   - postman
   - pycharm-ce
-  - raycast # backup in iCould/backup
+  - raycast # backup in iCould/backup, also replaces clipy
   - shortcat
   - signal
   - slack
