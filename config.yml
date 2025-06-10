@@ -154,8 +154,7 @@ homebrew_installed_packages:
   - yq
   - zoxide
 
-homebrew_not_install_packages:
-  - clipy
+homebrew_not_install_packages: []
 homebrew_extra_install_packages: []
 
 homebrew_taps:
@@ -168,7 +167,6 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - beeper
   - bruno
-  - clipy
   - cursor
   - devtoys
   - drawio
@@ -205,6 +203,7 @@ homebrew_cask_apps:
 homebrew_not_install_cask_apps:
   - docker
   - postman
+  - clipy
 homebrew_extra_install_cask_apps: []
 
 # See `geerlingguy.mas` role documentation for usage instructions.
