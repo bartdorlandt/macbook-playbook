@@ -22,10 +22,12 @@
       ansible.builtin.set_fact:
         homebrew_installed_packages: "{{ homebrew_installed_packages | difference(homebrew_not_install_packages) }} "
         homebrew_cask_apps: "{{ homebrew_cask_apps | difference(homebrew_not_install_cask_apps) }} "
+      tags: always
     - name: Add extra homebrew packages/cask to variable
       ansible.builtin.set_fact:
         homebrew_installed_packages: "{{ homebrew_installed_packages | difference(homebrew_extra_install_packages) }} "
         homebrew_cask_apps: "{{ homebrew_cask_apps | difference(homebrew_extra_install_cask_apps) }} "
+      tags: always
 
   tasks:
     - name: Git setup

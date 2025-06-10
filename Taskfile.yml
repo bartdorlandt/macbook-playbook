@@ -16,13 +16,20 @@ tasks:
     preconditions:
       - test -f .env.yml
 
+  playbook:homebrew:
+    desc: "Update/clean the homebrew packages"
+    cmds:
+      - ansible-playbook main.yml -K --tags=homebrew {{.CLI_ARGS}}
+    preconditions:
+      - test -f .env.yml
+
   list-tags:
     desc: "List available tags in the playbook"
     cmds:
       - ansible-playbook main.yml --list-tags
 
   tags:
-    desc: "Run the playbook with provided tags: 'task TAGS=\"tag1,tag2\" tags'"
+    desc: 'Run the playbook with provided tags: ''task TAGS="tag1,tag2" tags'''
     cmds:
       - task: playbook
         vars:
@@ -46,7 +53,7 @@ tasks:
         msg: "Please create a virtual environment first"
     requires:
       vars:
-        - VIRTUAL_ENV  # virtual environment should be activated
+        - VIRTUAL_ENV # virtual environment should be activated
     cmds:
       - task: install_xcode
       - task: install_ansible
