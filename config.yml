@@ -135,7 +135,6 @@ homebrew_installed_packages:
   - iproute2mac
   - jq
   - mtr
-  # - orbstack, trying to upgrade gives a warning and errors ansible
   - openssh
   - poetry
   - prettyping
@@ -186,6 +185,7 @@ homebrew_cask_apps:
   - logi-options-plus
   - notion
   - notunes
+  # - orbstack, trying to upgrade gives a warning and errors ansible
   - raycast # backup in iCould/backup, also replaces clipy
   - shortcat
   - signal
