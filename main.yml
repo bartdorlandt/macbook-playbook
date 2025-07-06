@@ -151,3 +151,10 @@
           tags:
             - fish
       tags: fish
+    - name: Include the direnv_plugins role
+      ansible.builtin.include_role:
+        name: direnv_plugins
+        apply:
+          tags:
+            - direnv_plugins
+      tags: direnv_plugins

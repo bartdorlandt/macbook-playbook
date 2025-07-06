@@ -1,0 +1,17 @@
+# starship
+- name: Create the direnvrc
+  when: direnvrc_path is defined and direnvrc_path != ""
+  block:
+    - name: Ensure the {{ direnvrc_path }} file exists
+      ansible.builtin.file:
+        path: "{{ direnvrc_path }}"
+        state: touch
+        mode: "0600"
+        modification_time: preserve
+        access_time: preserve
+
+    - name: Fill the direnvrc file with the direnv configuration
+      ansible.builtin.blockinfile:
+        path: "{{ direnvrc_path }}"
+        block: |
+          {{ direnvrc_config }}
