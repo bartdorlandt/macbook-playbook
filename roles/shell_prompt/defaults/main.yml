@@ -21,3 +21,6 @@ shell_prompt_starship_config: |
 
   [git_branch]
   symbol = '🌱 '
+
+  [direnv]
+  disabled = false

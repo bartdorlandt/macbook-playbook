@@ -119,6 +119,7 @@ homebrew_installed_packages:
   - atuin
   - bat
   - coreutils
+  - direnv
   - dockutil
   - eza
   - fd
@@ -203,6 +204,7 @@ homebrew_not_install_cask_apps:
   - docker # replaced by orbstack
   - postman # replaced by bruno
   - clipy # replaced by raycast
+
 homebrew_extra_install_cask_apps: []
 
 # See `geerlingguy.mas` role documentation for usage instructions.
