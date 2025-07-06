@@ -1,0 +1,11 @@
+---
+direnvrc_path: "{{ ansible_env.HOME }}/.config/direnv/direnvrc"
+direnvrc_config: |
+  layout_uv() {
+      if [[ -d ".venv" ]]; then
+          VIRTUAL_ENV="$(pwd)/.venv"
+          PATH_add "$VIRTUAL_ENV/bin"
+          export UV_ACTIVE=1  # or VENV_ACTIVE=1
+          export VIRTUAL_ENV
+      fi
+  }
