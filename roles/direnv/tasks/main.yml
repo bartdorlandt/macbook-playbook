@@ -1,0 +1,32 @@
+- name: Create the direnv plugins configuration file
+  when: direnv_directory is defined and direnv_directory != ""
+  block:
+    - name: Ensure directory exists
+      ansible.builtin.file:
+        path: "{{ direnv_directory }}"
+        state: directory
+        mode: "0755"
+    - name: Ensure the files exists
+      ansible.builtin.file:
+        path: "{{ direnv_directory }}/{{ item }}"
+        state: touch
+        mode: "0600"
+        modification_time: preserve
+        access_time: preserve
+      loop:
+        - direnvrc
+        - direnv.toml
+
+    - name: Fill the direnvrc file with the configuration
+      when: direnv_config is defined and direnv_config != ""
+      ansible.builtin.blockinfile:
+        path: "{{ direnv_directory }}/direnvrc"
+        block: |
+          {{ direnv_config }}
+
+    - name: Fill the direnv.toml file with the configuration
+      when: direnv_toml is defined and direnv_toml != ""
+      ansible.builtin.blockinfile:
+        path: "{{ direnv_directory }}/direnv.toml"
+        block: |
+          {{ direnv_toml }}

@@ -10,3 +10,5 @@ test.yml
 .idea/
 .python-version
 .venv/
+.ansible/
+.pytest_cache/
