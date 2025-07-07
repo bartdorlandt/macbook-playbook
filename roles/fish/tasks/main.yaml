@@ -19,7 +19,7 @@
     mode: "0755"
   when: configure_dotfiles and fish_exec.stat.exists
 
-- name: Symlink fish config direcotries
+- name: Symlink fish config directories
   ansible.builtin.file:
     src: "{{ fish_dotfiles }}/fish_user/{{ item }}"
     dest: "{{ fish_home }}{{ item }}"
@@ -32,7 +32,7 @@
   ansible.builtin.user:
     name: "{{ ansible_env.USER }}"
     shell: "{{ fish_executable }}"
-  when: fish_exec.stat.exists
+  when: fish_exec.stat.exists and fish_default_shell
 
 # OMF
 - name: Check if oh-my-fish is installed
@@ -42,7 +42,7 @@
 
 - name: Clone oh-my-fish repo
   ansible.builtin.git:
-    repo: 'https://github.com/oh-my-fish/oh-my-fish'
+    repo: "https://github.com/oh-my-fish/oh-my-fish"
     dest: "{{ fish_omf_path }}"
   when: not omf.stat.exists
 

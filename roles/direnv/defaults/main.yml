@@ -1,6 +1,6 @@
 ---
-direnv_plugins_path: "{{ ansible_env.HOME }}/.config/direnv/direnvrc"
-direnv_plugins_config: |
+direnv_directory: "{{ ansible_env.HOME }}/.config/direnv"
+direnv_config: |
   layout_uv() {
       if [[ -d ".venv" ]]; then
           VIRTUAL_ENV="$(pwd)/.venv"
@@ -18,3 +18,7 @@ direnv_plugins_config: |
           export VIRTUAL_ENV
       fi
   }
+
+direnv_toml: |
+  [global]
+  hide_env_diff = false

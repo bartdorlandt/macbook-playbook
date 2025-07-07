@@ -15,14 +15,14 @@ dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/git/dotfiles
 dotfiles_repo_version: master
 dotfiles_files:
+  - .pythonstartup
   - .screenrc
   - .shell_aliases
   - .tmux.conf
   - .vimrc
   - .vimrc.bundles
-  - .zshrc
   - .zprofile
-  - .pythonstartup
+  - .zshrc
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 # post_provision_tasks: "{{ playbook_dir }}/../tasks/*.yml"

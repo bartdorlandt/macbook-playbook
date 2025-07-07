@@ -144,17 +144,30 @@
     - name: Import task - symlinks
       ansible.builtin.import_tasks: tasks/symlinks.yml
       tags: symlinks
+    - name: Include the ohmyzsh role
+      ansible.builtin.include_role:
+        name: ohmyzsh
+        apply:
+          tags:
+            - ohmyzsh
+      vars:
+        ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting macos colored-man-pages"
+        copy_theme_bartdorlandt: false
+      when: ohmyzsh_plugins is defined or copy_theme_bartdorlandt
+      tags: ohmyzsh
     - name: Include the fish role
       ansible.builtin.include_role:
         name: fish
         apply:
           tags:
             - fish
+      vars:
+        fish_default_shell: false
       tags: fish
-    - name: Include the direnv_plugins role
+    - name: Include the direnv role
       ansible.builtin.include_role:
-        name: direnv_plugins
+        name: direnv
         apply:
           tags:
-            - direnv_plugins
-      tags: direnv_plugins
+            - direnv
+      tags: direnv

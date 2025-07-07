@@ -11,3 +11,4 @@ fish_links:
 
 fish_omf_path: "{{ ansible_env.HOME }}/.local/share/omf"
 fish_omf_plugins: []
+fish_default_shell: true
