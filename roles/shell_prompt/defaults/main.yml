@@ -1,6 +1,7 @@
 ---
-# ohmyzsh_plugins: "git zsh-autosuggestions zsh-syntax-highlighting"
 shell_prompt_starship_config: |
+  "$schema" = 'https://starship.rs/config-schema.json'
+
   command_timeout = 5000
   [directory]
   truncation_length = 3
