@@ -1,6 +1,6 @@
 ---
-direnvrc_path: "{{ ansible_env.HOME }}/.config/direnv/direnvrc"
-direnvrc_config: |
+direnv_plugins_path: "{{ ansible_env.HOME }}/.config/direnv/direnvrc"
+direnv_plugins_config: |
   layout_uv() {
       if [[ -d ".venv" ]]; then
           VIRTUAL_ENV="$(pwd)/.venv"
