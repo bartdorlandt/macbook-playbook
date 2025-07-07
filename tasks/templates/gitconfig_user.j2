@@ -1,17 +1,17 @@
 [user]
-  email = {{ git_email }}
-  name = {{ git_username }}
+	email = {{ git_email }}
+	name = {{ git_username }}
 [credential]
-  helper = cache --timeout=36000
+	helper = cache --timeout=36000
 [core]
-  editor = vim
-  excludesfile = ~/.config/git/ignore
-  whitespace = warn
-  autocrlf = input
-  filemode = true
+	editor = code --wait
+	excludesfile = ~/.config/git/gitignore
+	whitespace = warn
+	autocrlf = input
+	filemode = true
 [color]
-  ui = always
+	ui = always
 [init]
-  defaultBranch = {{ git_init_default_branch }}
+	defaultBranch = {{ git_init_default_branch }}
 [pull]
-  rebase = {{ git_pull_rebase }}
+	rebase = {{ git_pull_rebase }}
