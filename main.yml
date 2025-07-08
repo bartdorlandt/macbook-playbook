@@ -155,15 +155,15 @@
         copy_theme_bartdorlandt: false
       when: ohmyzsh_plugins is defined or copy_theme_bartdorlandt
       tags: ohmyzsh
-    - name: Include the fish role
-      ansible.builtin.include_role:
-        name: fish
-        apply:
-          tags:
-            - fish
-      vars:
-        fish_default_shell: false
-      tags: fish
+    # - name: Include the fish role
+    #   ansible.builtin.include_role:
+    #     name: fish
+    #     apply:
+    #       tags:
+    #         - fish
+    #   vars:
+    #     fish_default_shell: false
+    #   tags: fish
     - name: Include the direnv role
       ansible.builtin.include_role:
         name: direnv
