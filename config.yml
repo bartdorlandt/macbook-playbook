@@ -183,6 +183,7 @@ homebrew_cask_apps:
   - iterm2
   - karabiner-elements
   - keepassx
+  - licecap
   - logi-options-plus
   - notion
   - notunes
@@ -191,6 +192,7 @@ homebrew_cask_apps:
   - shortcat
   - signal
   - slack
+  - spotify
   - sublime-text
   - tailscale
   - telegram
