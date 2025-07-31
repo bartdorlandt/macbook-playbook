@@ -151,6 +151,7 @@ homebrew_installed_packages:
   - wget
   - whois
   - xping
+  - ykman
   - yq
   - zoxide
 
@@ -198,7 +199,7 @@ homebrew_cask_apps:
   - telegram
   - visual-studio-code
   - wireshark
-  - yubico-yubikey-manager
+  - yubico-authenticator
   - znotch
   - zoom
 
