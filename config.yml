@@ -124,6 +124,7 @@ homebrew_installed_packages:
   - eza
   - fd
   - fzf
+  - gemini-cli
   - gh
   - git
   - gnupg
@@ -172,8 +173,8 @@ homebrew_cask_apps:
   - drawio
   - dropbox
   - elgato-camera-hub
-  - elgato-stream-deck
   - elgato-control-center
+  - elgato-stream-deck
   - espanso
   - firefox
   - github
@@ -187,13 +188,14 @@ homebrew_cask_apps:
   - logi-options-plus
   - notion
   - notunes
-  # - orbstack, trying to upgrade gives a warning and errors ansible
+  - orbstack #, trying to upgrade gives a warning and errors ansible
   - raycast # backup in iCould/backup, also replaces clipy
   - shortcat
   - signal
   - slack
   - spotify
   - sublime-text
+  - synology-image-assistant
   - tailscale
   - telegram
   - visual-studio-code
