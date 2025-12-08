@@ -21,10 +21,10 @@
 
 - name: Link global git ignore file
   ansible.builtin.file:
-    src: "{{ playbook_dir }}/tasks/files/{{ item }}"
-    dest: "{{ ansible_env.HOME }}/.config/git/{{ item }}"
+    src: "{{ playbook_dir }}/tasks/files/{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/.config/git/{{ item.dst }}"
     owner: "{{ ansible_env.USER }}"
     group: "{{ user_group }}"
     state: link
   loop:
-    - gitignore
+    - { src: gitignore, dst: ignore }
