@@ -12,21 +12,21 @@ tasks:
     desc: "Run the main playbook, with -K"
     aliases: [all]
     cmds:
-      - ansible-playbook main.yml -K {{.CLI_ARGS}}
+      - uv run ansible-playbook main.yml -K {{.CLI_ARGS}}
     preconditions:
       - test -f .env.yml
 
   playbook:homebrew:
     desc: "Update/clean the homebrew packages"
     cmds:
-      - ansible-playbook main.yml -K --tags=homebrew {{.CLI_ARGS}}
+      - uv run ansible-playbook main.yml -K --tags=homebrew {{.CLI_ARGS}}
     preconditions:
       - test -f .env.yml
 
   list-tags:
     desc: "List available tags in the playbook"
     cmds:
-      - ansible-playbook main.yml --list-tags
+      - uv run ansible-playbook main.yml --list-tags
 
   tags:
     desc: 'Run the playbook with provided tags: ''task TAGS="tag1,tag2" tags'''
@@ -45,58 +45,45 @@ tasks:
         vars:
           CLI_ARGS: --step {{.CLI_ARGS}}
 
-  install_all:
+  install:all:
     desc: Install all dependencies
     aliases: [install]
-    preconditions:
-      - sh: test -d .venv
-        msg: "Please create a virtual environment first"
-    requires:
-      vars:
-        - VIRTUAL_ENV # virtual environment should be activated
+    deps:
+      - install:uv
+      - install:xcode
     cmds:
-      - task: install_xcode
-      - task: install_ansible
-      - task: install_repo
+      - task: install:repo
 
-  install_ansible:
-    desc: Install ansible, venv should be activated!
-    deps: [pip_upgrade]
+  install:uv:
+    desc: Sync uv
     cmds:
-      - pip3 install ansible {{.CLI_ARGS}}
-    requires:
-      vars:
-        - VIRTUAL_ENV
+      - uv sync
 
-  install_xcode:
+  install:xcode:
     set: [pipefail]
     run: once
     desc: Install Xcode
     cmds:
       - |
-        xcode-select -p 2>&1 >/dev/null || xcode-select --install
+        xcode-select -p &>/dev/null || xcode-select --install
         if [ "`xcode-select -p`" != "/Library/Developer/CommandLineTools" ]; then sudo xcode-select -switch /Library/Developer/CommandLineTools; fi
 
-  pip_upgrade:
-    desc: Install and upgrade pip
-    cmd: python3 -m ensurepip --upgrade
-
-  install_repo:
+  install:repo:
     desc: Install repo dependencies (ansible and git_submodules)
-    deps: [ansible_requirements_force, git_submodules]
+    deps: [install:ansible:requirements:force, install:git:submodules]
 
-  ansible_requirements:
+  install:ansible:requirements:
     desc: Install the ansible requirements
-    cmd: ansible-galaxy install -r requirements.yml {{.CLI_ARGS}}
+    cmd: uv run ansible-galaxy install -r requirements.yml {{.CLI_ARGS}}
 
-  ansible_requirements_force:
+  install:ansible:requirements:force:
     desc: Force install the ansible requirements
     cmds:
-      - task: ansible_requirements
+      - task: install:ansible:requirements
         vars:
           CLI_ARGS: --force
 
-  git_submodules:
+  install:git:submodules:
     desc: Install the git submodules
     cmd: git submodule update --init --recursive
 
