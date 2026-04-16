@@ -2,10 +2,6 @@
 *.sublime-project
 *.sublime-workspace
 
-# vscode
-.vscode/*
-!.vscode/settings.json
-
 # pycharm
 .idea/
 

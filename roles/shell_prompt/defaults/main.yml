@@ -25,3 +25,6 @@ shell_prompt_starship_config: |
 
   [direnv]
   disabled = false
+
+  [gcloud]
+  disabled = true
