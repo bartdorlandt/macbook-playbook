@@ -136,7 +136,7 @@ homebrew_installed_packages:
   - iproute2mac
   - jq
   - mtr
-  - openssh
+  # - openssh # only needed for YubiKey support. Do I still need it?
   - poetry
   - prettyping
   - pwgen
@@ -155,7 +155,9 @@ homebrew_installed_packages:
   - yq
   - zoxide
 
-homebrew_not_install_packages: []
+homebrew_not_install_packages:
+  - openssh
+
 homebrew_extra_install_packages: []
 
 homebrew_taps:
@@ -217,9 +219,9 @@ mas_installed_apps:
   - { id: 1352778147, name: "Bitwarden" }
   # - { id: 1475387142, name: "Tailscale" }
 
-# mas_uninstalled_apps:
-#   - { id: 408981434, name: "iMovie" }
-#   - { id: 682658836, name: "GarageBand" }
+  # mas_uninstalled_apps:
+  #   - { id: 408981434, name: "iMovie" }
+  #   - { id: 682658836, name: "GarageBand" }
 mas_email: ""
 mas_password: ""
 
