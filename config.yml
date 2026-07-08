@@ -123,6 +123,7 @@ homebrew_installed_packages:
   - dockutil
   - eza
   - fd
+  - findutils
   - fzf
   - gemini-cli
   - gh
