@@ -22,3 +22,4 @@ direnv_config: |
 direnv_toml: |
   [global]
   hide_env_diff = false
+  warn_timeout = "30s"

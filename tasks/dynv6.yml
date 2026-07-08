@@ -18,5 +18,4 @@
   ansible.builtin.cron:
     name: "dynv6"
     minute: "*/10"
-    job: "token={{ ddns.dynv6_token }} $HOME/git/user_scripts_linux/dyndns/{{ dynv6_script }} {{ ddns.dynv6_name }} >
-    /tmp/{{ ddns.dynv6_name }}.log 2>&1"
+    job: "token={{ ddns.dynv6_token }} $HOME/git/user_scripts_linux/dyndns/{{ dynv6_script }} {{ ddns.dynv6_name }} > /tmp/{{ ddns.dynv6_name }}.log 2>&1"

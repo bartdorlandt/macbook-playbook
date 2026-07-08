@@ -13,7 +13,7 @@
     mode: "750"
   loop: "{{ git_dirs }}"
 
-- name: Make sure .config/git directorie exist
+- name: Make sure .config/git directory exist
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config/git"
     state: directory

@@ -30,3 +30,19 @@
         path: "{{ direnv_directory }}/direnv.toml"
         block: |
           {{ direnv_toml }}
+
+- name: Make sure lib directory exist
+  ansible.builtin.file:
+    path: "{{ direnv_directory }}/lib"
+    state: directory
+    mode: "750"
+
+- name: Link scripts to lib directory
+  ansible.builtin.file:
+    src: "{{ item.src }}"
+    dest: "{{ direnv_directory }}/lib/{{ item.dst }}"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ user_group }}"
+    state: link
+  loop:
+    - { src: "{{ ansible_env.HOME }}/scripts/bw_get.sh", dst: bw_get.sh }
