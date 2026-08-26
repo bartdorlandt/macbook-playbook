@@ -858,6 +858,23 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Disable left_option+d",
+                        "manipulators": [
+                            {
+                                "description": "",
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
