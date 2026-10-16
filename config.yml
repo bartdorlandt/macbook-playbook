@@ -202,6 +202,7 @@ homebrew_cask_apps:
   - tailscale
   - telegram
   - visual-studio-code
+  - vorssaint
   - wireshark
   - yubico-authenticator
   - znotch
