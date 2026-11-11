@@ -116,9 +116,14 @@ dockitems_persist:
     pos: 16
 
 homebrew_installed_packages:
+  - act
+  - apfel
   - atuin
+  - autossh
   - bat
+  - bitwarden-cli
   - coreutils
+  - curl
   - direnv
   - dockutil
   - eza
@@ -128,22 +133,32 @@ homebrew_installed_packages:
   - gemini-cli
   - gh
   - git
+  - git-cliff
   - gnupg
   - go
   - go-task
+  - golang-migrate
+  - golangci-lint
+  - goreleaser
   - gping
   - htop
+  - hugo
   - httpie
   - iproute2mac
   - jq
+  - marp-cli
+  - mas
+  - mcp-grafana
   - mtr
-  # - openssh # only needed for YubiKey support. Do I still need it?
-  - poetry
+  - opencode
+  - packer
+  - pouriyajamshidi/tap/tcping
   - prettyping
+  - pstree
   - pwgen
   - ripgrep
   - starship
-  - pouriyajamshidi/tap/tcping
+  - svu
   - telnet
   - tmate
   - tmux
@@ -169,10 +184,15 @@ homebrew_taps:
 homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  - beekeeper-studio
   - beeper
   - bruno
+  - chatgpt
+  - claude
+  - claude-code
   - cursor
   - devtoys
+  - discord
   - drawio
   - dropbox
   - elgato-camera-hub
@@ -180,32 +200,36 @@ homebrew_cask_apps:
   - elgato-stream-deck
   - espanso
   - firefox
+  - ghostty
   - github
   - google-chrome
   - google-drive
-  - hiddenbar
+  - granola
   - iterm2
+  - jabra-direct
   - karabiner-elements
-  - keepassx
-  - licecap
-  - logi-options-plus
+  - keepassxc
   - notion
   - notunes
+  - obsidian
   - orbstack #, trying to upgrade gives a warning and errors ansible
   - raycast # backup in iCould/backup, also replaces clipy
+  - sbx
   - shortcat
   - signal
   - slack
+  - smack
   - spotify
-  - sublime-text
   - synology-image-assistant
+  - superwhisper
   - tailscale
+  - tailscale-app
   - telegram
   - visual-studio-code
   - vorssaint
-  - wireshark
+  - whatcable
+  - wireshark-app
   - yubico-authenticator
-  - znotch
   - zoom
 
 homebrew_not_install_cask_apps:
