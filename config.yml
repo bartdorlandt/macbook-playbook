@@ -142,8 +142,8 @@ homebrew_installed_packages:
   - goreleaser
   - gping
   - htop
-  - hugo
   - httpie
+  - hugo
   - iproute2mac
   - jq
   - marp-cli
@@ -213,6 +213,7 @@ homebrew_cask_apps:
   - notunes
   - obsidian
   - orbstack #, trying to upgrade gives a warning and errors ansible
+  - peel
   - raycast # backup in iCould/backup, also replaces clipy
   - sbx
   - shortcat
@@ -220,8 +221,8 @@ homebrew_cask_apps:
   - slack
   - smack
   - spotify
-  - synology-image-assistant
   - superwhisper
+  - synology-image-assistant
   - tailscale
   - tailscale-app
   - telegram
